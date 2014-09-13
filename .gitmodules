@@ -1,0 +1,7 @@
+[submodule "oh-my-zsh"]
+  path = oh-my-zsh
+  url = https://github.com/robbyrussell/oh-my-zsh.git
+
+[submodule "haskell-vim-now"]
+  path = haskell-vim-now
+  url = https://github.com/begriffs/haskell-vim-now.git
