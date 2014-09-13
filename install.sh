@@ -1,6 +1,13 @@
 #!/bin/bash -e
 
 #
+# Fetch dependencies
+#
+
+git submodule init
+git submodule update
+
+#
 # First backup everything
 #
 
