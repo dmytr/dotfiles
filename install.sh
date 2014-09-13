@@ -30,4 +30,4 @@ ln -sf $(pwd)/tmux.conf ~/.tmux.conf
 # Install haskell-vim-now
 #
 
-source haskell-vim-now.sh
+source haskell-vim-now/install.sh
