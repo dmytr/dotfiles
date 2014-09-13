@@ -1,0 +1,23 @@
+[include]
+  path=~/.gitconfig.local
+
+[push]
+  default = simple
+
+[alias]
+  co = checkout
+  ci = commit
+  st = status
+  br = branch
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  type = cat-file -t
+  dump = cat-file -p
+
+[credential]
+  helper = cache --timeout=3600
+
+[color]
+  ui = auto
+
+[core]
+  editor = /usr/bin/vim
