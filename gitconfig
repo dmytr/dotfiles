@@ -1,23 +1,28 @@
 [include]
   path=~/.gitconfig.local
 
-[push]
-  default = simple
-
 [alias]
   co = checkout
   ci = commit
   st = status
   br = branch
+  bra = branch -avvv
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   type = cat-file -t
   dump = cat-file -p
 
-[credential]
-  helper = cache --timeout=3600
-
 [color]
-  ui = auto
+  ui = true
+
+[http]
+  sslCAinfo = /home/dima/.ssh/cacert.pem
+
+[credential]
+  helper = cache --timeout=28800
+
+[push]
+  default = simple
 
 [core]
+  autocrlf = input
   editor = /usr/bin/vim
