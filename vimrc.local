@@ -13,3 +13,17 @@ map <silent> <Leader>E :Errors<CR>
 map <Leader>s :SyntasticToggleMode<CR>
 
 " }}}
+
+" {{{ Shakespeare syntax
+
+Bundle 'pbrisbin/vim-syntax-shakespeare'
+
+au BufRead,BufNewFile *.hamlet  setf hamlet
+au BufRead,BufNewFile *.cassius setf cassius
+au BufRead,BufNewFile *.lucius  setf lucius
+au BufRead,BufNewFile *.julius  setf julius 
+
+" }}}
+
+" Generate haskell tags with codex, hasktags and hscope
+map <leader>tg :!codex update<CR>:!find . \| egrep '\.hs$' \| xargs hasktags --ctags > tags<CR>:call system("git hscope")<CR><CR>:call LoadHscope()<CR>
