@@ -21,6 +21,7 @@ cp -L ~/.vimrc.local $backup_dir
 cp -L ~/.gitconfig $backup_dir
 cp -L ~/.tmux.conf $backup_dir
 
+cp -L -r ~/.emacs.d $backup_dir
 
 #
 # Setup dotfiles
@@ -32,6 +33,7 @@ ln -sf $(pwd)/vimrc.local ~/.vimrc.local
 ln -sf $(pwd)/gitconfig ~/.gitconfig
 ln -sf $(pwd)/tmux.conf ~/.tmux.conf
 
+ln -sf $(pwd)/emacs-prelude ~/.emacs.d
 
 #
 # Install haskell-vim-now

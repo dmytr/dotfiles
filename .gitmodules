@@ -6,6 +6,7 @@
   path = haskell-vim-now
   url = https://github.com/begriffs/haskell-vim-now.git
 
-[submodule "emacs-prelude"]
-	path = emacs-prelude
-	url = https://github.com/bbatsov/prelude.git
+[submodule "prelude"]
+  path = emacs-prelude
+  url = https://github.com/dmytr/prelude.git
+  branch = personal
