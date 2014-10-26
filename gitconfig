@@ -14,9 +14,6 @@
 [color]
   ui = true
 
-[http]
-  sslCAinfo = /home/dima/.ssh/cacert.pem
-
 [credential]
   helper = cache --timeout=28800
 

@@ -5,3 +5,7 @@
 [submodule "haskell-vim-now"]
   path = haskell-vim-now
   url = https://github.com/begriffs/haskell-vim-now.git
+
+[submodule "emacs-prelude"]
+	path = emacs-prelude
+	url = https://github.com/bbatsov/prelude.git
