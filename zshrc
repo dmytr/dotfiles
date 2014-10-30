@@ -49,3 +49,4 @@ fi
 
 # Customize to your needs...
 alias clr='clear'
+alias emacs='emacsclient -a "" -c'
