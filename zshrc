@@ -37,8 +37,10 @@ plugins=(git history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
-bindkey '\eOA' history-substring-search-up
-bindkey '\eOB' history-substring-search-down
+if [[ -z "$INSIDE_EMACS" ]]; then
+  bindkey '\eOA' history-substring-search-up
+  bindkey '\eOB' history-substring-search-down
+fi
 
 if [[ -n "$TMUX" ]]; then
   bindkey '\e[1~' beginning-of-line
