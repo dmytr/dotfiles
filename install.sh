@@ -45,11 +45,11 @@ fi
 ln -sf $(pwd)/zshenv ~/.zshenv
 ln -sf $(pwd)/zshrc ~/.zshrc
 ln -sf $(pwd)/vimrc.local ~/.vimrc.local
-ln -sf $(pwd)/vim.local ~/.vim.local
+ln -sfn $(pwd)/vim.local ~/.vim.local
 ln -sf $(pwd)/gitconfig ~/.gitconfig
 ln -sf $(pwd)/tmux.conf ~/.tmux.conf
 
-ln -sf $(pwd)/emacs-prelude ~/.emacs.d
+ln -sfn $(pwd)/emacs-prelude ~/.emacs.d
 
 #
 # Install haskell-vim-now
