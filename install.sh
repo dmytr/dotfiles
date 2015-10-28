@@ -15,13 +15,28 @@ backup_dir=$(pwd)/backup_`date +%Y%m%d_%H%M%S`
 
 mkdir -p $backup_dir
 
-cp -L ~/.zshenv $backup_dir
-cp -L ~/.zshrc $backup_dir
-cp -L ~/.vimrc.local $backup_dir
-cp -L ~/.gitconfig $backup_dir
-cp -L ~/.tmux.conf $backup_dir
+if [ -e ~/.zshenv ]
+  then cp -L ~/.zshenv $backup_dir
+fi
+if [ -e ~/.zshrc ]
+  then cp -L ~/.zshrc $backup_dir
+fi
+if [ -e ~/.vimrc.local ]
+  then cp -L ~/.vimrc.local $backup_dir
+fi
+if [ -e ~/.vim.local ]
+  then cp -L -r ~/.vim.local $backup_dir
+fi
+if [ -e ~/.gitconfig ]
+  then cp -L ~/.gitconfig $backup_dir
+fi
+if [ -e ~/.tmux.conf ]
+  then cp -L ~/.tmux.conf $backup_dir
+fi
 
-cp -L -r ~/.emacs.d $backup_dir
+if [ -e ~/.emacs.d ]
+  then cp -L -r ~/.emacs.d $backup_dir
+fi
 
 #
 # Setup dotfiles
@@ -30,6 +45,7 @@ cp -L -r ~/.emacs.d $backup_dir
 ln -sf $(pwd)/zshenv ~/.zshenv
 ln -sf $(pwd)/zshrc ~/.zshrc
 ln -sf $(pwd)/vimrc.local ~/.vimrc.local
+ln -sf $(pwd)/vim.local ~/.vim.local
 ln -sf $(pwd)/gitconfig ~/.gitconfig
 ln -sf $(pwd)/tmux.conf ~/.tmux.conf
 
