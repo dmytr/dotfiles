@@ -2,11 +2,10 @@
   path = oh-my-zsh
   url = https://github.com/robbyrussell/oh-my-zsh.git
 
-[submodule "haskell-vim-now"]
-  path = haskell-vim-now
-  url = https://github.com/begriffs/haskell-vim-now.git
+[submodule "spacemacs"]
+  path = spacemacs
+  url = git clone https://github.com/syl20bnr/spacemacs
 
-[submodule "prelude"]
-  path = emacs-prelude
-  url = https://github.com/dmytr/prelude.git
-  branch = personal
+[submodule "spf13-vim"]
+  path = spf13-vim
+  url = https://github.com/spf13/spf13-vim.git

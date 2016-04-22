@@ -15,5 +15,3 @@ map <silent> <Leader>E :Errors<CR>
 map <Leader>s :SyntasticToggleMode<CR>
 
 " }}}
-
-nmap <C-S-k> :CtrlPCmdPalette<CR>
