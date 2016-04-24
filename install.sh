@@ -39,6 +39,7 @@ do_symlink() {
     ln -sf $(pwd)/gitconfig ~/.gitconfig
 
     ln -sfn $(pwd)/spacemacs ~/.emacs.d
+    ln -sf  $(pwd)/spacemacs.el ~/.spacemacs
 }
 
 #
