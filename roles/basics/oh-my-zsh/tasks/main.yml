@@ -1,0 +1,33 @@
+---
+
+- name: Install Zsh package
+  apt: name="{{ item }}"
+  with_items:
+    - zsh
+
+- name: Set Zsh as a shell for user "{{ user_name }}"
+  user: name="{{ user_name }}" shell=/bin/zsh
+
+- name: Link ~/.oh-my-zsh
+  file:
+    src: "{{ installation_dir }}/vendor/oh-my-zsh"
+    dest: "{{ home_dir }}/.oh-my-zsh"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    state: link
+
+- name: Link ~/.zshrc
+  file:
+    src: "{{ installation_dir }}/roles/basics/oh-my-zsh/files/zshrc"
+    dest: "{{ home_dir }}/.zshrc"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    state: link
+
+- name: Link ~/.zshenv
+  file:
+    src: "{{ installation_dir }}/roles/basics/oh-my-zsh/files/zshenv"
+    dest: "{{ home_dir }}/.zshenv"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    state: link

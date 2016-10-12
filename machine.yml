@@ -1,0 +1,36 @@
+---
+
+- hosts: all
+
+
+  pre_tasks:
+
+    - name: Use default settings file
+      set_fact:
+        settings_file: settings/settings.yml
+      when: settings_file is undefined
+
+    - name: Load settings from "{{ settings_file }}"
+      include_vars: "{{ settings_file }}"
+
+
+  roles:
+
+    - os/lightdm
+    - os/touchpad
+    - os/intel
+    - os/nvidia
+
+    - basics/profile
+    - basics/git
+    - basics/oh-my-zsh
+    - basics/neovim
+    - basics/spacemacs
+
+    - extras/docker
+    - extras/java
+    - extras/nodejs
+    - extras/haskell
+    - extras/sublime-text
+    - extras/vagrant
+    - extras/spacemacs-layers-deps

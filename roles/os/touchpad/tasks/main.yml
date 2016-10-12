@@ -1,0 +1,21 @@
+---
+
+- name: Make sure that /etc/X11/xorg.conf.d folder exists
+  file:
+    path: "/etc/X11/xorg.conf.d"
+    owner: root
+    group: root
+    state: directory
+
+- name: Link /etc/X11/xorg.conf.d/50-synaptics.conf
+  file:
+    src: "{{ installation_dir }}/roles/os/touchpad/files/50-synaptics.conf"
+    dest: "/etc/X11/xorg.conf.d/50-synaptics.conf"
+    owner: root
+    group: root
+    state: link
+
+- name: Tell Gnome Settings Daemon to respect touchpad config
+  shell: gsettings set org.gnome.settings-daemon.plugins.mouse active false
+  become: yes
+  become_user: "{{ user_name }}"

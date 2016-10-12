@@ -1,0 +1,14 @@
+---
+
+- name: Download package
+  get_url:
+    url: "https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/{{ vagrant_deb_name }}"
+    dest: "{{ vagrant_deb_tmp }}"
+
+- name: Install package
+  apt: deb="{{ vagrant_deb_tmp }}"
+
+- name: Cleanup
+  file:
+    path: "{{ vagrant_deb_tmp }}"
+    state: absent

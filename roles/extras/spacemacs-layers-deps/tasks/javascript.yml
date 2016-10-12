@@ -1,0 +1,12 @@
+---
+
+- name: Install dependencies via NPM
+  npm:
+    name: "{{ item }}"
+    global: yes
+  with_items:
+    - tern
+    - js-beautify
+    - eslint
+  become: yes
+  become_user: "{{ user_name }}"

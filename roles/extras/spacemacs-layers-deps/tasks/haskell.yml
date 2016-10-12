@@ -1,0 +1,13 @@
+---
+
+- name: Install dependencies via Stack
+  shell: "stack install {{ item }}"
+  with_items:
+    - apply-refact
+    - hlint
+    - stylish-haskell
+    - hasktags
+    - hoogle
+    - ghc-mod
+  become: yes
+  become_user: "{{ user_name }}"

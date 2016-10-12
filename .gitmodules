@@ -1,11 +1,16 @@
 [submodule "oh-my-zsh"]
-  path = oh-my-zsh
+  path = vendor/oh-my-zsh
   url = https://github.com/robbyrussell/oh-my-zsh.git
 
 [submodule "spacemacs"]
-  path = spacemacs
+  path = vendor/spacemacs
   url = git clone https://github.com/syl20bnr/spacemacs
 
-[submodule "spf13-vim"]
-  path = spf13-vim
-  url = https://github.com/spf13/spf13-vim.git
+[submodule "roles/basics/neovim/files/plugged/nerdtree"]
+  path = roles/basics/neovim/files/plugged/nerdtree
+  url = https://github.com/scrooloose/nerdtree.git
+
+[submodule "roles/basics/neovim/files/plugged/gruvbox"]
+  path = roles/basics/neovim/files/plugged/gruvbox
+  url = https://github.com/morhetz/gruvbox.git
+

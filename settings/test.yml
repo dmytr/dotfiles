@@ -1,0 +1,8 @@
+---
+
+user_name: "tester"
+home_dir: "/home/{{ user_name }}"
+installation_dir: "/vagrant"
+
+git_name:  "Playbook Tester"
+git_email: "tester@localhost"

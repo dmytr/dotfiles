@@ -1,0 +1,41 @@
+---
+
+- name: Add APT key
+  apt_key:
+    url: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x55F96FCF8231B6DD
+    keyring: /etc/apt/trusted.gpg.d/neovim.gpg
+
+- name: Add PPA repo
+  apt_repository:
+    repo: "deb http://ppa.launchpad.net/neovim-ppa/unstable/ubuntu {{ ansible_distribution_release }} main #NeoVim"
+
+- name: Install packages
+  apt: name="{{ item }}"
+  with_items:
+    - neovim
+    - python-dev
+    - python-pip
+    - python3-dev
+    - python3-pip
+
+- name: Update alternatives to use NeoVim
+  alternatives: name="{{ item }}" link="/usr/bin/{{item }}" path="/usr/bin/nvim"
+  with_items:
+    - vi
+    - vim
+    - editor
+
+- name: Create configuration folders
+  file:
+    path: "{{ home_dir }}/.config"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    state: directory
+
+- name: Link configuration files
+  file:
+    src: "{{ installation_dir }}/roles/basics/neovim/files"
+    dest: "{{ home_dir }}/.config/nvim"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    state: link

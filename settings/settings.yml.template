@@ -1,0 +1,8 @@
+---
+
+user_name: "?"
+home_dir: "/home/{{ user_name }}"
+installation_dir: "?"
+
+git_name:  "?"
+git_email: "?"

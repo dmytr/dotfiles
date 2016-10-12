@@ -1,0 +1,21 @@
+---
+
+- name: Install package
+  apt: name="{{ item }}"
+  with_items:
+    - git
+
+- name: Link ~/.gitconfig
+  file:
+    src: "{{ installation_dir }}/roles/basics/git/files/gitconfig"
+    dest: "{{ home_dir }}/.gitconfig"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    state: link
+
+- name: Link ~/.gitconfig.local
+  template:
+    src: gitconfig.local
+    dest: "{{ home_dir }}/.gitconfig.local"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"

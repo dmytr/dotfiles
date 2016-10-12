@@ -1,0 +1,16 @@
+---
+
+- name: Make sure that /etc/lightdm/lightdm.conf.d folder exists
+  file:
+    path: "/etc/lightdm/lightdm.conf.d"
+    owner: root
+    group: root
+    state: directory
+
+- name: Link /etc/lightdm/lightdm.conf.d/50-no-guest.conf
+  file:
+    src: "{{ installation_dir }}/roles/os/lightdm/files/50-no-guest.conf"
+    dest: "/etc/lightdm/lightdm.conf.d/50-no-guest.conf"
+    owner: root
+    group: root
+    state: link

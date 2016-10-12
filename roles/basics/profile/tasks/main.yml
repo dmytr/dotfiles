@@ -1,0 +1,17 @@
+---
+
+- name: Create ~/.local/bin folder
+  file:
+    path: "{{ home_dir }}/.local/bin"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    state: directory
+
+- name: Link ~/.profile
+  file:
+    src: "{{ installation_dir }}/roles/basics/profile/files/profile.sh"
+    dest: "{{ home_dir }}/.profile"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    state: link
+    force: yes

@@ -1,11 +1,10 @@
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.dotfiles/oh-my-zsh
+ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="robbyrussell"
 ZSH_THEME="geoffgarside"
 
 # Example aliases
@@ -48,7 +47,6 @@ if [[ -n "$TMUX" ]]; then
 fi
 
 # Customize to your needs...
-alias clr='clear'
-
-# OPAM configuration
-. /home/dima/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+eval "$(stack --bash-completion-script stack)"

@@ -1,0 +1,20 @@
+---
+
+- name: Add APT key
+  apt_key:
+    url: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x575159689BEFB442
+    keyring: /etc/apt/trusted.gpg.d/fpcomplete.gpg
+
+- name: Add PPA repo
+  apt_repository:
+    repo: "deb http://download.fpcomplete.com/ubuntu {{ ansible_distribution_release }} main #FP Complete"
+
+- name: Install packages
+  apt: name="{{ item }}"
+  with_items:
+    - stack
+
+- name: Configure Stack
+  shell: "stack setup"
+  become: yes
+  become_user: "{{ user_name }}"
