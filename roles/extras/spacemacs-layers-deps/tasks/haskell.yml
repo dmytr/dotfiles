@@ -8,6 +8,9 @@
     - stylish-haskell
     - hasktags
     - hoogle
+    - hindent
     - ghc-mod
+    - intero
+    - hspec-discover
   become: yes
   become_user: "{{ user_name }}"

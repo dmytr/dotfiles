@@ -53,7 +53,9 @@ values."
      javascript
      typescript
      yaml
-     (haskell :variables haskell-completion-backend 'ghc-mod)
+     (haskell :variables
+              haskell-completion-backend 'intero
+              haskell-enable-hindent-style "johan-tibell")
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
