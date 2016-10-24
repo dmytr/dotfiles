@@ -4,7 +4,7 @@
 
 [submodule "spacemacs"]
   path = vendor/spacemacs
-  url = git clone https://github.com/syl20bnr/spacemacs
+  url = https://github.com/syl20bnr/spacemacs
 
 [submodule "roles/basics/neovim/files/plugged/nerdtree"]
   path = roles/basics/neovim/files/plugged/nerdtree
