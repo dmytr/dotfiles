@@ -61,7 +61,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(persistent-scratch)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -310,6 +310,15 @@ you should place your code here."
   (setq-default frame-title-format "%b (%f)")
 
   (delete-selection-mode 1)
+
+
+  (setq persistent-scratch-save-file (expand-file-name ".cache/persistent-scratch" user-emacs-directory))
+  (setq persistent-scratch-scratch-buffer-p-function (lambda ()
+                                                      "Returns non-nil if the current buffer's name is *scratch* or untitled."
+                                                      (or
+                                                       (string= (buffer-name) "*scratch*")
+                                                       (string-match-p "^untitled\\(\<[[:digit:]]\>\\)?$" (buffer-name)))))
+  (persistent-scratch-setup-default)
 
   )
 
