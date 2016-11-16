@@ -312,12 +312,14 @@ you should place your code here."
   (delete-selection-mode 1)
 
 
-  (setq persistent-scratch-save-file (expand-file-name ".cache/persistent-scratch" user-emacs-directory))
-  (setq persistent-scratch-scratch-buffer-p-function (lambda ()
-                                                      "Returns non-nil if the current buffer's name is *scratch* or untitled."
-                                                      (or
-                                                       (string= (buffer-name) "*scratch*")
-                                                       (string-match-p "^untitled\\(\<[[:digit:]]\>\\)?$" (buffer-name)))))
+  (setq persistent-scratch-save-file
+        (expand-file-name ".cache/persistent-scratch" user-emacs-directory))
+  (setq persistent-scratch-scratch-buffer-p-function
+        (lambda ()
+          "Returns non-nil if the current buffer's name is *scratch* or untitled."
+          (or
+            (string= (buffer-name) "*scratch*")
+            (string-match-p "^untitled\\(\<[[:digit:]]\>\\)?$" (buffer-name)))))
   (persistent-scratch-setup-default)
 
   )
