@@ -45,8 +45,3 @@ if [[ -n "$TMUX" ]]; then
   bindkey '\e[1~' beginning-of-line
   bindkey '\e[4~' end-of-line
 fi
-
-# Customize to your needs...
-autoload -U +X compinit && compinit
-autoload -U +X bashcompinit && bashcompinit
-eval "$(stack --bash-completion-script stack)"

@@ -30,7 +30,7 @@
     - extras/docker
     - extras/java
     - extras/nodejs
-    - extras/haskell
+    #- extras/haskell
     - extras/sublime-text
     - extras/vagrant
     - extras/spacemacs-layers-deps
