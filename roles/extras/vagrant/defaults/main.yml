@@ -1,5 +1,5 @@
 ---
 
-vagrant_version:  "1.8.6"
+vagrant_version:  "1.9.3"
 vagrant_deb_name: "vagrant_{{ vagrant_version }}_x86_64.deb"
 vagrant_deb_tmp:  "/tmp/{{ vagrant_deb_name }}"

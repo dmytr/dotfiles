@@ -16,8 +16,8 @@
 
   roles:
 
-    - os/lightdm
-    - os/touchpad
+    #- os/lightdm
+    #- os/touchpad
     - os/intel
     - os/nvidia
 
@@ -25,12 +25,12 @@
     - basics/git
     - basics/oh-my-zsh
     - basics/neovim
-    - basics/spacemacs
+    #- basics/spacemacs
 
-    - extras/docker
+    #- extras/docker
     - extras/java
-    - extras/nodejs
+    #- extras/nodejs
     #- extras/haskell
-    - extras/sublime-text
+    #- extras/sublime-text
     - extras/vagrant
-    - extras/spacemacs-layers-deps
+    #- extras/spacemacs-layers-deps

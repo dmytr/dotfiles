@@ -3,7 +3,7 @@
 - name: Install packages
   apt: name="{{ item }}"
   with_items:
-    - nvidia-361
+    - nvidia-375
     - nvidia-settings
     - nvidia-prime
 

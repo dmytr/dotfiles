@@ -1,14 +1,5 @@
 ---
 
-- name: Add APT key
-  apt_key:
-    url: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x55F96FCF8231B6DD
-    keyring: /etc/apt/trusted.gpg.d/neovim.gpg
-
-- name: Add PPA repo
-  apt_repository:
-    repo: "deb http://ppa.launchpad.net/neovim-ppa/unstable/ubuntu {{ ansible_distribution_release }} main #NeoVim"
-
 - name: Install packages
   apt: name="{{ item }}"
   with_items:
