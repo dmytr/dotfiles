@@ -17,7 +17,7 @@
   roles:
 
     #- os/lightdm
-    #- os/touchpad
+    - os/touchpad
     - os/intel
     - os/nvidia
 
@@ -27,7 +27,7 @@
     - basics/neovim
     #- basics/spacemacs
 
-    #- extras/docker
+    - extras/docker
     - extras/java
     - extras/nodejs
     #- extras/haskell
