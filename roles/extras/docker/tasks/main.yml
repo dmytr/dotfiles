@@ -2,17 +2,17 @@
 
 - name: Add APT key
   apt_key:
-    url: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x58118E89F3A912897C070ADBF76221572C52609D
+    url: https://download.docker.com/linux/ubuntu/gpg
     keyring: /etc/apt/trusted.gpg.d/docker.gpg
 
 - name: Add PPA repo
   apt_repository:
-    repo: "deb https://apt.dockerproject.org/repo ubuntu-{{ ansible_distribution_release }} main #Docker"
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} edge #Docker"
 
 - name: Install packages
   apt: name="{{ item }}"
   with_items:
-    - docker-engine
+    - docker-ce
 
 - name: Add user "{{ user_name }}" to group "docker"
   user:
