@@ -7,6 +7,14 @@
     group: root
     state: directory
 
+- name: Link /etc/X11/xorg.conf.d/30-touchpad.conf
+  file:
+    src: "{{ installation_dir }}/roles/os/touchpad/files/30-touchpad.conf"
+    dest: "/etc/X11/xorg.conf.d/30-touchpad.conf"
+    owner: root
+    group: root
+    state: link
+
 - name: Link /etc/X11/xorg.conf.d/50-synaptics.conf
   file:
     src: "{{ installation_dir }}/roles/os/touchpad/files/50-synaptics.conf"
