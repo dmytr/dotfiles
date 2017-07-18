@@ -36,6 +36,9 @@ plugins=(git history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
+alias gti='git'
+alias giti='git'
+
 if [[ -z "$INSIDE_EMACS" ]]; then
   bindkey '\eOA' history-substring-search-up
   bindkey '\eOB' history-substring-search-down
