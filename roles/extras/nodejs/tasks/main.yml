@@ -9,11 +9,11 @@
   apt_repository:
     repo: "{{ item }}"
   with_items:
-    - "deb https://deb.nodesource.com/node_6.x {{ ansible_distribution_release }} main #NodeSource"
-    - "deb-src https://deb.nodesource.com/node_6.x {{ ansible_distribution_release }} main #NodeSource (sources)"
+    - "deb https://deb.nodesource.com/node_6.x {{ os_release_name }} main #NodeSource"
+    - "deb-src https://deb.nodesource.com/node_6.x {{ os_release_name }} main #NodeSource (sources)"
 
 - name: Install packages
-  apt: name="{{ item }}"
+  apt: name="{{ item }}" update_cache=yes state=latest
   with_items:
     - nodejs
 

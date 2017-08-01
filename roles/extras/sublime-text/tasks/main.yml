@@ -7,9 +7,9 @@
 
 - name: Add PPA repo
   apt_repository:
-    repo: "deb http://ppa.launchpad.net/webupd8team/sublime-text-3/ubuntu {{ ansible_distribution_release }} main #Sublime Text 3"
+    repo: "deb http://ppa.launchpad.net/webupd8team/sublime-text-3/ubuntu {{ os_release_name }} main #Sublime Text 3"
 
 - name: Install packages
-  apt: name="{{ item }}"
+  apt: name="{{ item }}" update_cache=yes state=latest
   with_items:
     - sublime-text-installer

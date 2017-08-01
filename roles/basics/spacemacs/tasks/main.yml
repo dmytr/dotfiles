@@ -1,7 +1,7 @@
 ---
 
 - name: Install Emacs package
-  apt: name="{{ item }}"
+  apt: name="{{ item }}" update_cache=yes state=latest
   with_items:
     - emacs
 

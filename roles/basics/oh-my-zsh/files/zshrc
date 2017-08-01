@@ -48,3 +48,6 @@ if [[ -n "$TMUX" ]]; then
   bindkey '\e[1~' beginning-of-line
   bindkey '\e[4~' end-of-line
 fi
+
+# Temporary
+source $HOME/.profile

@@ -10,7 +10,7 @@
     repo: "deb http://download.fpcomplete.com/ubuntu {{ ansible_distribution_release }} main #FP Complete"
 
 - name: Install packages
-  apt: name="{{ item }}"
+  apt: name="{{ item }}" update_cache=yes state=latest
   with_items:
     - stack
 

@@ -1,6 +1,6 @@
 ---
 
 - name: Install packages
-  apt: name="{{ item }}"
+  apt: name="{{ item }}" update_cache=yes state=latest
   with_items:
     - openjdk-8-jdk

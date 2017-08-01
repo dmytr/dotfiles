@@ -18,5 +18,4 @@ fi
 
 # set PATH so it includes user's private bin directories
 export PATH="$HOME/.npm-global/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"

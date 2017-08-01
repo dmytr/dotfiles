@@ -7,10 +7,10 @@
 
 - name: Add PPA repo
   apt_repository:
-    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} edge #Docker"
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ os_release_name }} edge #Docker"
 
 - name: Install packages
-  apt: name="{{ item }}"
+  apt: name="{{ item }}" update_cache=yes state=latest
   with_items:
     - docker-ce
 
