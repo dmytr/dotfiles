@@ -1,12 +1,12 @@
 ---
 
 - name: Install packages
-  apt: name="{{ item }}" update_cache=yes state=latest
+  package: name="{{ item }}" state=latest
   with_items:
     - neovim
-    - python-dev
-    - python-pip
-    - python3-dev
+    - python2-devel
+    - python2-pip
+    - python3-devel
     - python3-pip
 
 - name: Update alternatives to use NeoVim

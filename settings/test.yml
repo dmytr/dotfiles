@@ -1,5 +1,7 @@
 ---
 
+os_release_name: "{{ ansible_distribution_release }}"
+
 user_name: "tester"
 home_dir: "/home/{{ user_name }}"
 installation_dir: "/vagrant"

@@ -1,0 +1,20 @@
+---
+
+- name: Install packages
+  package: name="{{ item }}" state=latest
+  with_items:
+    - nodejs
+
+- name: Create ~/.npm-global folder
+  file:
+    path: "{{ home_dir }}/.npm-global"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    state: directory
+
+- name: Use ~/.npm-global as NPM prefix
+  template:
+    src: npmrc
+    dest: "{{ home_dir }}/.npmrc"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"

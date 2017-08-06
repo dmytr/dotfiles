@@ -38,16 +38,3 @@ source $ZSH/oh-my-zsh.sh
 
 alias gti='git'
 alias giti='git'
-
-if [[ -z "$INSIDE_EMACS" ]]; then
-  bindkey '\eOA' history-substring-search-up
-  bindkey '\eOB' history-substring-search-down
-fi
-
-if [[ -n "$TMUX" ]]; then
-  bindkey '\e[1~' beginning-of-line
-  bindkey '\e[4~' end-of-line
-fi
-
-# Temporary
-source $HOME/.profile

@@ -1,0 +1,15 @@
+---
+
+- name: Add repo
+  yum_repository:
+    name:        skype-stable
+    description: Skype for Linux - stable
+    baseurl:     https://repo.skype.com/rpm/stable/
+    gpgkey:      https://repo.skype.com/data/SKYPE-GPG-KEY
+    enabled:     yes
+    gpgcheck:    yes
+
+- name: Install packages
+  package: name="{{ item }}" state=latest
+  with_items:
+    - skypeforlinux

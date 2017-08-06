@@ -2,6 +2,8 @@
 
 - hosts: all
 
+  become: yes
+
   pre_tasks:
 
     - name: Use default settings file
@@ -15,21 +17,15 @@
 
   roles:
 
-    #- os/lightdm
-    - os/touchpad
-    - os/intel
-    - os/nvidia
-
     - basics/profile
     - basics/git
     - basics/oh-my-zsh
     - basics/neovim
-    #- basics/spacemacs
 
-    - extras/docker
-    - extras/java
-    - extras/nodejs
-    #- extras/haskell
-    - extras/sublime-text
-    - extras/vagrant
-    #- extras/spacemacs-layers-deps
+    - desktop/sublime-text
+    - desktop/skype
+
+    - dev/docker
+    - dev/java
+    - dev/nodejs
+    - dev/vagrant

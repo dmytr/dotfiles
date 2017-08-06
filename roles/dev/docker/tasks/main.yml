@@ -1,0 +1,28 @@
+---
+
+- name: Add repo
+  yum_repository:
+    name:        docker-ce-stable
+    file:        docker-ce
+    description: Docker CE Stable - $basearch
+    baseurl:     https://download.docker.com/linux/fedora/25/$basearch/stable
+    gpgkey:      https://download.docker.com/linux/fedora/gpg
+    enabled:     yes
+    gpgcheck:    yes
+
+- name: Install packages
+  package: name="{{ item }}" state=latest
+  with_items:
+    - docker-ce
+
+- name: Enable service
+  service:
+    name: docker
+    enabled: yes
+    state: started
+
+- name: Add user "{{ user_name }}" to group "docker"
+  user:
+    name: "{{ user_name }}"
+    groups: "docker"
+    append: yes

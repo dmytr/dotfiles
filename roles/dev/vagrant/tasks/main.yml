@@ -1,0 +1,6 @@
+---
+
+- name: Install package
+  dnf:
+    name: https://releases.hashicorp.com/vagrant/{{ vagrant_version }}/vagrant_{{ vagrant_version }}_x86_64.rpm
+    state: present

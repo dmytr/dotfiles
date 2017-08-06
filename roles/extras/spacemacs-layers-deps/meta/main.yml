@@ -1,5 +1,0 @@
----
-
-dependencies:
-  - role: extras/nodejs
-  #- role: extras/haskell
