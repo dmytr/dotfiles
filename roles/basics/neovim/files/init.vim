@@ -5,6 +5,7 @@ call plug#begin()
 
 Plug 'scrooloose/nerdtree'
 Plug 'morhetz/gruvbox'
+Plug 'kien/ctrlp.vim'
 
 call plug#end()
 

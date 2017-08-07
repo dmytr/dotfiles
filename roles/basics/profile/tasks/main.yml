@@ -7,11 +7,25 @@
     group: "{{ user_name }}"
     state: directory
 
-- name: Link ~/.profile
+- name: Create ~/.config/profile.d folder
   file:
-    src: "{{ installation_dir }}/roles/basics/profile/files/profile.sh"
-    dest: "{{ home_dir }}/.profile"
+    path: "{{ home_dir }}/.config/profile.d"
     owner: "{{ user_name }}"
     group: "{{ user_name }}"
+    state: directory
+
+- name: Link ~/.config/profile.d/local-bin.sh
+  file:
+    src: "{{ installation_dir }}/roles/basics/profile/files/local-bin.sh"
+    dest: "{{ home_dir }}/.config/profile.d/local-bin.sh"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    state: link
+    force: yes
+
+- name: Link /etc/profile.d/local-profile-d.sh
+  file:
+    src: "{{ installation_dir }}/roles/basics/profile/files/local-profile-d.sh"
+    dest: "/etc/profile.d/local-profile-d.sh"
     state: link
     force: yes

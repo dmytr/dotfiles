@@ -18,3 +18,12 @@
     dest: "{{ home_dir }}/.npmrc"
     owner: "{{ user_name }}"
     group: "{{ user_name }}"
+
+- name: Link ~/.config/profile.d/npm-global-bin.sh
+  file:
+    src: "{{ installation_dir }}/roles/dev/nodejs/files/npm-global-bin.sh"
+    dest: "{{ home_dir }}/.config/profile.d/npm-global-bin.sh"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    state: link
+    force: yes
