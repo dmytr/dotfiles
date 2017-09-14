@@ -10,6 +10,7 @@
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   type = cat-file -t
   dump = cat-file -p
+  up = "!git fetch && git rebase origin/`git rev-parse --abbrev-ref HEAD` && git remote prune origin"
 
 [color]
   ui = true
@@ -18,7 +19,7 @@
   helper = cache --timeout=28800
 
 [push]
-  default = simple
+  default = current
 
 [core]
   autocrlf = input
