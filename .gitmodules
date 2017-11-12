@@ -2,10 +2,6 @@
   path = vendor/oh-my-zsh
   url = https://github.com/robbyrussell/oh-my-zsh.git
 
-[submodule "numix-icon-theme-square"]
-  path = vendor/numix-icon-theme-square
-  url = https://github.com/numixproject/numix-icon-theme-square.git
-
 [submodule "roles/basics/neovim/files/plugged/nerdtree"]
   path = roles/basics/neovim/files/plugged/nerdtree
   url = https://github.com/scrooloose/nerdtree.git
