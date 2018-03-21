@@ -5,7 +5,7 @@
     name:        docker-ce-stable
     file:        docker-ce
     description: Docker CE Stable - $basearch
-    baseurl:     https://download.docker.com/linux/fedora/25/$basearch/stable
+    baseurl:     https://download.docker.com/linux/fedora/27/$basearch/stable
     gpgkey:      https://download.docker.com/linux/fedora/gpg
     enabled:     yes
     gpgcheck:    yes

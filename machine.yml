@@ -18,12 +18,10 @@
   roles:
 
     - basics/profile
-    - basics/git
+    - basics/nix
+    - basics/git  
     - basics/oh-my-zsh
     - basics/neovim
-
-    - desktop/sublime-text
-    - desktop/skype
 
     - dev/docker
     - dev/java

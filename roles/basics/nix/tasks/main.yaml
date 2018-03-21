@@ -1,0 +1,30 @@
+---
+
+#- name: Install Nix
+#  shell: "{{ installation_dir }}/roles/basics/nix/files/install.sh"
+#  become: true
+#  become_user: "{{ user_name }}"
+
+- name: Link ~/.config/profile.d/nix-config.sh
+  file:
+    src: "{{ installation_dir }}/roles/basics/nix/files/nix-config.sh"
+    dest: "{{ home_dir }}/.config/profile.d/nix-config.sh"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    state: link
+    force: yes
+
+- name: Link ~/.local/nixpkgs
+  file:
+    src: "{{ installation_dir }}/vendor/local-nixpkgs"
+    dest: "{{ home_dir }}/.local/nixpkgs"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    state: link
+    force: yes
+
+- name: Update Nix channels
+  shell: "source {{ home_dir }}/.config/profile.d/nix-config.sh && nix-channel --update"
+  become: true
+  become_user: "{{ user_name }}"
+
