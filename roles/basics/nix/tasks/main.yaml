@@ -1,9 +1,8 @@
 ---
 
-#- name: Install Nix
-#  shell: "{{ installation_dir }}/roles/basics/nix/files/install.sh"
-#  become: true
-#  become_user: "{{ user_name }}"
+- name: Install Nix
+  shell: "{{ installation_dir }}/roles/basics/nix/files/install.sh"
+  become: false
 
 - name: Link ~/.config/profile.d/nix-config.sh
   file:

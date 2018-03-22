@@ -10,6 +10,9 @@ do_init() {
 }
 
 do_install() {
+    echo "We would need a super-user permissions for this..."
+    sudo echo "OK"
+
     ansible-playbook -i "localhost," -c local -v machine.yml
 }
 
