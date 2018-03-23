@@ -11,6 +11,13 @@
   when: nix_found|failed
   become: false
 
+- name: Create ~/.config/nixpkgs folder
+  file:
+    path: "{{ home_dir }}/.config/nixpkgs"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    state: directory
+
 - name: Link ~/.config/nixpkgs/config.nix
   file:
     src: "{{ installation_dir }}/roles/basics/nix/files/config.nix"
