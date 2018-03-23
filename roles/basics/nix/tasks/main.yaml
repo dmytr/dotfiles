@@ -1,8 +1,24 @@
 ---
 
+- name: Check if Nix is istalled
+  command: which nix-env
+  register: nix_found
+  ignore_errors: true
+  become: false
+
 - name: Install Nix
   shell: "{{ installation_dir }}/roles/basics/nix/files/install.sh"
+  when: nix_found|failed
   become: false
+
+- name: Link ~/.config/nixpkgs/config.nix
+  file:
+    src: "{{ installation_dir }}/roles/basics/nix/files/config.nix"
+    dest: "{{ home_dir }}/.config/nixpkgs/config.nix"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    state: link
+    force: yes
 
 - name: Link ~/.config/profile.d/nix-config.sh
   file:
@@ -24,6 +40,10 @@
 
 - name: Update Nix channels
   shell: "source {{ home_dir }}/.config/profile.d/nix-config.sh && nix-channel --update"
-  become: true
-  become_user: "{{ user_name }}"
+  when: nix_found|failed
+  become: false
+
+- name: Install OpenGL driver (required by many GUI apps)
+  shell: "nix-env -iA nixpkgs.libGL"
+  become: false
 
