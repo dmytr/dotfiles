@@ -1,0 +1,12 @@
+[Unit]
+Description="Link OpenGL driver for Nix programs"
+
+[Service]
+Type=oneshot
+ExecStart=/bin/mkdir -p /run/opengl-driver/lib
+ExecStart=/bin/sh -c 'ln -sf /usr/lib64/dri /usr/lib64/libdrm* /usr/lib64/libselinux.so* /usr/lib64/libpciaccess.so* /usr/lib64/libpcre2-8.so* /run/opengl-driver/lib/'
+ExecStart=/bin/mkdir -p /run/opengl-driver-32/lib
+ExecStart=/bin/sh -c 'ln -sf /usr/lib/dri /usr/lib/libdrm* /usr/lib/libselinux.so* /usr/lib/libpciaccess.so* /usr/lib/libpcre2-8.so* /run/opengl-driver-32/lib/'
+
+[Install]
+WantedBy=multi-user.target

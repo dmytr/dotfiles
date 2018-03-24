@@ -45,12 +45,25 @@
     state: link
     force: yes
 
-- name: Update Nix channels
-  shell: "source {{ home_dir }}/.config/profile.d/nix-config.sh && nix-channel --update"
-  when: nix_found|failed
-  become: false
+- name: Create /usr/local/lib/systemd/system folder
+  file:
+    path: "/usr/local/lib/systemd/system"
+    owner: "root"
+    group: "root"
+    state: directory
 
-- name: Install OpenGL driver (required by many GUI apps)
-  shell: "nix-env -iA nixpkgs.libGL"
-  become: false
+- name: Copy /usr/local/lib/systemd/system/nix-opengl.service
+  copy:
+    src: "{{ installation_dir }}/roles/basics/nix/files/nix-opengl.service"
+    dest: "/usr/local/lib/systemd/system/nix-opengl.service"
+    owner: "root"
+    group: "root"
+    force: yes
+
+- name: Start nix-opengl.service
+  systemd:
+    name: nix-opengl.service
+    state: started
+    enabled: yes
+    daemon_reload: yes
 

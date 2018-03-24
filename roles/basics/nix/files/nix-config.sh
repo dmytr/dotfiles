@@ -9,10 +9,10 @@ else
     export XDG_DATA_DIRS="$NIX_XDG_DATA_DIRS":"$XDG_DATA_DIRS"
 fi
 
-NIX_LIBGL_DRIVERS_PATH=/nix/store/1yawik475cqd2d0pczg11q69bc2x097f-mesa-noglu-17.3.3-drivers/lib/dri
-if [ -z "$LIBGL_DRIVERS_PATH" ]; then
-    export LIBGL_DRIVERS_PATH="$NIX_LIBGL_DRIVERS_PATH"
+NIX_LD_LIBRARY_PATH=/run/opengl-driver/lib
+if [ -z "$LD_LIBRARY_PATH" ]; then
+    export LD_LIBRARY_PATH="$NIX_LD_LIBRARY_PATH"
 else
-    export LIBGL_DRIVERS_PATH="$NIX_LIBGL_DRIVERS_PATH":"$LIBGL_DRIVERS_PATH"
+    export LD_LIBRARY_PATH="$NIX_LD_LIBRARY_PATH":"$LD_LIBRARY_PATH"
 fi
 
