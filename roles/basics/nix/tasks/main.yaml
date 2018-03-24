@@ -13,15 +13,24 @@
 
 - name: Create ~/.config/nixpkgs folder
   file:
-    path: "{{ home_dir }}/.config/nixpkgs"
+    path: "{{ home_dir }}/.config/nixpkgs/overlays"
     owner: "{{ user_name }}"
     group: "{{ user_name }}"
     state: directory
 
 - name: Link ~/.config/nixpkgs/config.nix
   file:
-    src: "{{ installation_dir }}/roles/basics/nix/files/config.nix"
+    src: "{{ installation_dir }}/roles/basics/nix/files/nixpkgs-config.nix"
     dest: "{{ home_dir }}/.config/nixpkgs/config.nix"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    state: link
+    force: yes
+
+- name: Link ~/.config/nixpkgs/overlays/local.nix
+  file:
+    src: "{{ installation_dir }}/vendor/nixpkgs-overlay/default.nix"
+    dest: "{{ home_dir }}/.config/nixpkgs/overlays/local.nix"
     owner: "{{ user_name }}"
     group: "{{ user_name }}"
     state: link
@@ -31,15 +40,6 @@
   file:
     src: "{{ installation_dir }}/roles/basics/nix/files/nix-config.sh"
     dest: "{{ home_dir }}/.config/profile.d/nix-config.sh"
-    owner: "{{ user_name }}"
-    group: "{{ user_name }}"
-    state: link
-    force: yes
-
-- name: Link ~/.local/nixpkgs
-  file:
-    src: "{{ installation_dir }}/vendor/local-nixpkgs"
-    dest: "{{ home_dir }}/.local/nixpkgs"
     owner: "{{ user_name }}"
     group: "{{ user_name }}"
     state: link
