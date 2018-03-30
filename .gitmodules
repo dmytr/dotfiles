@@ -2,15 +2,3 @@
   path = vendor/oh-my-zsh
   url = https://github.com/robbyrussell/oh-my-zsh.git
 
-[submodule "roles/basics/neovim/files/plugged/nerdtree"]
-  path = roles/basics/neovim/files/plugged/nerdtree
-  url = https://github.com/scrooloose/nerdtree.git
-
-[submodule "roles/basics/neovim/files/plugged/gruvbox"]
-  path = roles/basics/neovim/files/plugged/gruvbox
-  url = https://github.com/morhetz/gruvbox.git
-
-[submodule "roles/basics/neovim/files/plugged/ctrlp.vim"]
-  path = roles/basics/neovim/files/plugged/ctrlp.vim
-  url = https://github.com/kien/ctrlp.vim.git
-

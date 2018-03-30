@@ -22,6 +22,7 @@
     - basics/git  
     - basics/oh-my-zsh
     - basics/neovim
+    - basics/terminator
 
     - dev/docker
     - dev/java

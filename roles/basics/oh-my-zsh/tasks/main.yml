@@ -15,6 +15,7 @@
     owner: "{{ user_name }}"
     group: "{{ user_name }}"
     state: link
+    force: yes
 
 - name: Link ~/.zshrc
   file:
@@ -23,6 +24,7 @@
     owner: "{{ user_name }}"
     group: "{{ user_name }}"
     state: link
+    force: yes
 
 - name: Link ~/.zshenv
   file:
@@ -31,3 +33,14 @@
     owner: "{{ user_name }}"
     group: "{{ user_name }}"
     state: link
+    force: yes
+
+- name: Link ~/.dircolors
+  file:
+    src: "{{ installation_dir }}/roles/basics/oh-my-zsh/files/dircolors"
+    dest: "{{ home_dir }}/.dircolors"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    state: link
+    force: yes
+

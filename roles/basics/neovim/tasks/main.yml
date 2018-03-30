@@ -30,3 +30,7 @@
     owner: "{{ user_name }}"
     group: "{{ user_name }}"
     state: link
+
+- name: Install plugins
+  shell: "vim +PlugInstall +qall"
+  become: no
