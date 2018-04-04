@@ -8,7 +8,7 @@
 
 - name: Install Nix
   shell: "{{ installation_dir }}/roles/basics/nix/files/install.sh"
-  when: nix_found|failed
+  when: nix_found is failed
   become: false
 
 - name: Create ~/.config/nixpkgs folder
