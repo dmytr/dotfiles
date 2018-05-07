@@ -4,9 +4,9 @@ Description="Link OpenGL driver for Nix programs"
 [Service]
 Type=oneshot
 ExecStart=/bin/mkdir -p /run/opengl-driver/lib
-ExecStart=/bin/sh -c 'ln -sf /usr/lib64/dri /usr/lib64/libdrm* /usr/lib64/libselinux.so* /usr/lib64/libpciaccess.so* /usr/lib64/libpcre2-8.so* /run/opengl-driver/lib/'
+ExecStart=/bin/sh -c 'ln -sf /usr/lib64/dri /usr/lib64/libdrm* /usr/lib64/libGLX_mesa* /usr/lib64/libGLX_indirect* /usr/lib64/libselinux.so* /usr/lib64/libpciaccess.so* /usr/lib64/libpcre2* /usr/lib64/libxcb* /usr/lib64/libxshm* /usr/lib64/libglapi* /usr/lib64/libXxf86* /run/opengl-driver/lib/'
 ExecStart=/bin/mkdir -p /run/opengl-driver-32/lib
-ExecStart=/bin/sh -c 'ln -sf /usr/lib/dri /usr/lib/libdrm* /usr/lib/libselinux.so* /usr/lib/libpciaccess.so* /usr/lib/libpcre2-8.so* /run/opengl-driver-32/lib/'
+ExecStart=/bin/sh -c 'ln -sf /usr/lib/dri /usr/lib/libdrm* /usr/lib/libGLX_mesa* /usr/lib/libGLX_indirect* /usr/lib/libselinux.so* /usr/lib/libpciaccess.so* /usr/lib/libpcre2* /usr/lib/libxcb* /usr/lib/libxshm* /usr/lib/libglapi* /usr/lib/libXxf86* /run/opengl-driver-32/lib/'
 
 [Install]
 WantedBy=multi-user.target
