@@ -9,6 +9,12 @@
     - python3-devel
     - python3-pip
 
+- name: Remove vi and vim packages
+  package: name="{{ item }}" state=absent
+  with_items:
+    - vi
+    - vim
+
 - name: Update alternatives to use NeoVim
   alternatives: name="{{ item }}" link="/usr/bin/{{item }}" path="/usr/bin/nvim"
   with_items:
@@ -32,5 +38,5 @@
     state: link
 
 - name: Install plugins
-  shell: "vim +PlugInstall +qall"
+  shell: "vim +PlugInstall +PlugUpdate +qall"
   become: no
