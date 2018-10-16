@@ -25,4 +25,3 @@
   autocrlf = input
   editor = /usr/bin/vim
   commentchar = ~
-

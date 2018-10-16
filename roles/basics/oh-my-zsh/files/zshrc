@@ -32,10 +32,14 @@ ZSH_THEME="geoffgarside"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git history-substring-search docker stack mvn gradle npm yarn sbt)
+plugins=(git history-substring-search docker stack mvn gradle npm yarn sbt kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
 alias gti='git'
 alias giti='git'
 alias ghit='git -c user.email="dmytr@users.noreply.github.com" -c user.name="dmytr"'
+
+alias code="GTK_IM_MODULE=ibus code"
+
+export LESS='-SRXF'
