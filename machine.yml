@@ -27,6 +27,7 @@
     - desktop/codecs
     - desktop/gnome
 
+    - dev/vscode
     - dev/docker
     - dev/java
     - dev/nodejs
