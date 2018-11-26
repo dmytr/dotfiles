@@ -16,6 +16,9 @@
 
   roles:
 
+    - system/profile
+    - system/misc
+
     - console/profile
     - console/git
     - console/oh-my-zsh

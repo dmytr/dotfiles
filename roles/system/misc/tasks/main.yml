@@ -1,0 +1,15 @@
+---
+
+- name: Link /etc/locale.conf
+  file:
+    src: "{{ installation_dir }}/roles/system/misc/files/locale.conf"
+    dest: "/etc/locale.conf"
+    state: link
+    force: yes
+
+- name: Link /etc/sysctl.d/20-fsnotify.conf
+  file:
+    src: "{{ installation_dir }}/roles/system/misc/files/20-fsnotify.conf"
+    dest: "/etc/sysctl.d/20-fsnotify.conf"
+    state: link
+    force: yes

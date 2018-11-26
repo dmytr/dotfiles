@@ -1,0 +1,8 @@
+---
+
+- name: Link /etc/profile.d/local-profile-d.sh
+  file:
+    src: "{{ installation_dir }}/roles/console/profile/files/local-profile-d.sh"
+    dest: "/etc/profile.d/local-profile-d.sh"
+    state: link
+    force: yes
