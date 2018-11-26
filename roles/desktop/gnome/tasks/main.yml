@@ -1,0 +1,66 @@
+---
+
+- name: Install packages
+  package: name="{{ item }}" state=latest
+  with_items:
+    - numix-icon-theme
+    - numix-icon-theme-square
+    - gnome-shell-extension-windowsNavigator
+    # Instead install from extensions.gnome.org via Software + middleclickclose
+    #- gnome-shell-extension-dash-to-dock
+    #- gnome-shell-extension-topicons-plus
+
+- name: Configure GNOME (via gsettings)
+  shell: "gsettings set {{ item.name }} {{ item.value }}"
+  become: no
+  with_items:
+    - name:  org.gnome.desktop.interface gtk-theme
+      value: "'Adwaita-dark'"
+    - name:  org.gnome.desktop.interface icon-theme
+      value: "'Numix-Square'"
+
+    - name:  org.gnome.desktop.wm.preferences button-layout
+      value: "'appmenu:minimize,maximize,close'"
+    - name:  org.gnome.desktop.interface clock-show-date
+      value: "true"
+    - name:  org.gnome.desktop.calendar show-weekdate
+      value: "true"
+
+    - name:  org.gnome.desktop.input-sources xkb-options
+      value: "\"['grp:win_space_toggle', 'lv3:ralt_switch_multikey']\""
+    - name:  org.gnome.desktop.input-sources sources
+      value: "\"[('xkb', 'us'), ('xkb', 'ua')]\""
+
+    - name:  org.gnome.desktop.peripherals.touchpad tap-to-click
+      value: "true"
+    - name:  org.gnome.desktop.peripherals.touchpad natural-scroll
+      value: "false"
+    - name:  org.gnome.desktop.peripherals.touchpad two-finger-scrolling-enabled
+      value: "true"
+
+    - name:  org.gnome.shell enabled-extensions
+      value: "\"['alternate-tab@gnome-shell-extensions.gcampax.github.com', 'windowsNavigator@gnome-shell-extensions.gcampax.github.com', 'dash-to-dock@micxgx.gmail.com', 'middleclickclose@paolo.tranquilli.gmail.com', 'TopIcons@phocean.net']\""
+
+    - name:  org.gnome.shell.window-switcher app-icon-mode
+      value: "'both'"
+
+- name: Configure GNOME (via dconf)
+  shell: "dconf write \"{{ item.name }}\" \"{{ item.value }}\""
+  become: no
+  with_items:
+    - name:  /org/gnome/shell/extensions/topicons/tray-pos
+      value: "'right'"
+
+    - name:  /org/gnome/shell/extensions/dash-to-dock/preferred-monitor
+      value: "0"
+    - name:  /org/gnome/shell/extensions/dash-to-dock/dock-fixed
+      value: "false"
+    - name:  /org/gnome/shell/extensions/dash-to-dock/intellihide-mode
+      value: "'FOCUS_APPLICATION_WINDOWS'"
+    - name:  /org/gnome/shell/extensions/dash-to-dock/custom-theme-running-dots
+      value: "true"
+    - name:  /org/gnome/shell/extensions/dash-to-dock/custom-theme-customize-running-dots
+      value: "true"
+    - name:  /org/gnome/shell/extensions/dash-to-dock/running-indicator-style
+      value: "'DOTS'"
+

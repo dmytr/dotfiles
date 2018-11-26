@@ -14,16 +14,19 @@
     - name: Load settings from "{{ settings_file }}"
       include_vars: "{{ settings_file }}"
 
-
   roles:
 
-    - basics/profile
-    - basics/git
-    - basics/oh-my-zsh
-    - basics/neovim
-    - basics/terminator
+    - console/profile
+    - console/git
+    - console/oh-my-zsh
+    - console/neovim
+    - console/terminator
+
+    - desktop/flatpak
+    - desktop/rpmfusion
+    - desktop/codecs
+    - desktop/gnome
 
     - dev/docker
     - dev/java
     - dev/nodejs
-    - dev/vagrant

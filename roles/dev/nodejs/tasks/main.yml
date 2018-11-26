@@ -9,7 +9,7 @@
   file:
     path: "{{ home_dir }}/.npm-global"
     owner: "{{ user_name }}"
-    group: "{{ user_name }}"
+    group: "{{ user_group }}"
     state: directory
 
 - name: Use ~/.npm-global as NPM prefix
@@ -17,13 +17,13 @@
     src: npmrc
     dest: "{{ home_dir }}/.npmrc"
     owner: "{{ user_name }}"
-    group: "{{ user_name }}"
+    group: "{{ user_group }}"
 
 - name: Link ~/.config/profile.d/npm-global-bin.sh
   file:
     src: "{{ installation_dir }}/roles/dev/nodejs/files/npm-global-bin.sh"
     dest: "{{ home_dir }}/.config/profile.d/npm-global-bin.sh"
     owner: "{{ user_name }}"
-    group: "{{ user_name }}"
+    group: "{{ user_group }}"
     state: link
     force: yes

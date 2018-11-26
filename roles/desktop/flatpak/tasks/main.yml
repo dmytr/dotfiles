@@ -1,0 +1,14 @@
+---
+
+- name: Install packages
+  package: name="{{ item }}" state=latest
+  with_items:
+    - flatpak
+
+- name: Add the flathub flatpak repository remote to the user installation
+  flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+    method: user
+  become: no
