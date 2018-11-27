@@ -16,7 +16,7 @@
 
 - name: Link ~/.config/profile.d/local-bin.sh
   file:
-    src: "{{ installation_dir }}/roles/console/profile/files/local-bin.sh"
+    src: "{{ role_path }}/files/local-bin.sh"
     dest: "{{ home_dir }}/.config/profile.d/local-bin.sh"
     owner: "{{ user_name }}"
     group: "{{ user_group }}"

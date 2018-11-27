@@ -4,4 +4,4 @@
 .vagrant
 machine.retry
 settings/settings.yml
-roles/basics/neovim/files/plugged
+roles/console/neovim/files/plugged

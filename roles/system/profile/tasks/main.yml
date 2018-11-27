@@ -1,8 +1,9 @@
 ---
 
-- name: Link /etc/profile.d/local-profile-d.sh
-  file:
-    src: "{{ installation_dir }}/roles/console/profile/files/local-profile-d.sh"
+- name: Configure /etc/profile.d/local-profile-d.sh
+  copy:
+    src: "{{ role_path }}/files/local-profile-d.sh"
     dest: "/etc/profile.d/local-profile-d.sh"
-    state: link
+    owner: root
+    group: root
     force: yes

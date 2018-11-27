@@ -1,11 +1,8 @@
 ---
 
-os_release_name: "{{ ansible_distribution_release }}"
-
-user_name:        "?"
-user_group:       "{{ user_name }}"
-home_dir:         "/home/{{ user_name }}"
-installation_dir: "{{ home_dir }}/.dotfiles"
+user_name:  "?"
+user_group: "{{ user_name }}"
+home_dir:   "/home/{{ user_name }}"
 
 git_name:    "?"
 git_email:   "?"

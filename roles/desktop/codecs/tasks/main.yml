@@ -1,6 +1,6 @@
 ---
 
-# I got this list of packages by running:
+# I got this list of packages by running (plus few extras):
 # > sudo dnf install gstreamer1-{plugin-crystalhd,ffmpeg,plugins-{good,ugly,bad{,-free,-nonfree,-freeworld,-extras}{,-extras}}} libmpg123 lame-libs --setopt=strict=0
 # > sudo dnf groupinstall core multimedia sound-and-video
 
@@ -10,7 +10,7 @@
     - gstreamer1-libav
     - gstreamer1-plugins-bad-freeworld
     - gstreamer1-plugins-bad-free-extras
-    - gstreamer1-plugins-bad-nonfree 
+    - gstreamer1-plugins-bad-nonfree
     - gstreamer1-plugins-ugly
     - rpmfusion-free-appstream-data
     - rpmfusion-nonfree-appstream-data

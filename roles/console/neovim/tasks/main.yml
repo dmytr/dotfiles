@@ -31,7 +31,7 @@
 
 - name: Link configuration files
   file:
-    src: "{{ installation_dir }}/roles/console/neovim/files"
+    src: "{{ role_path }}/files"
     dest: "{{ home_dir }}/.config/nvim"
     owner: "{{ user_name }}"
     group: "{{ user_group }}"

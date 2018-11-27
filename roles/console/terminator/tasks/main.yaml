@@ -14,7 +14,7 @@
 
 - name: Link ~/.config/terminator/config
   file:
-    src: "{{ installation_dir }}/roles/console/terminator/files/config"
+    src: "{{ role_path }}/files/config"
     dest: "{{ home_dir }}/.config/terminator/config"
     owner: "{{ user_name }}"
     group: "{{ user_group }}"

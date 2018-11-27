@@ -1,8 +1,9 @@
 ---
 
-- name: Link /etc/sysctl.d/10-swappiness.conf
-  file:
-    src: "{{ installation_dir }}/roles/system/misc/files/10-swappiness.conf"
+- name: Configure /etc/sysctl.d/10-swappiness.conf
+  copy:
+    src: "{{ role_path }}/files/10-swappiness.conf"
     dest: "/etc/sysctl.d/10-swappiness.conf"
-    state: link
+    owner: root
+    group: root
     force: yes

@@ -7,7 +7,7 @@
 
 - name: Link ~/.gitconfig
   file:
-    src: "{{ installation_dir }}/roles/console/git/files/gitconfig"
+    src: "{{ role_path }}/files/gitconfig"
     dest: "{{ home_dir }}/.gitconfig"
     owner: "{{ user_name }}"
     group: "{{ user_name }}"

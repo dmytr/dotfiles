@@ -1,15 +1,17 @@
 ---
 
-- name: Link /etc/locale.conf
-  file:
-    src: "{{ installation_dir }}/roles/system/misc/files/locale.conf"
+- name: Configure /etc/locale.conf
+  copy:
+    src: "{{ role_path }}/files/locale.conf"
     dest: "/etc/locale.conf"
-    state: link
+    owner: root
+    group: root
     force: yes
 
-- name: Link /etc/sysctl.d/20-fsnotify.conf
-  file:
-    src: "{{ installation_dir }}/roles/system/misc/files/20-fsnotify.conf"
+- name: Configure /etc/sysctl.d/20-fsnotify.conf
+  copy:
+    src: "{{ role_path }}/files/20-fsnotify.conf"
     dest: "/etc/sysctl.d/20-fsnotify.conf"
-    state: link
+    owner: root
+    group: root
     force: yes
