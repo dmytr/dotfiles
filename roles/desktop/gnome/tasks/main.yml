@@ -30,6 +30,8 @@
       value: "\"['grp:win_space_toggle', 'lv3:ralt_switch_multikey']\""
     - name:  org.gnome.desktop.input-sources sources
       value: "\"[('xkb', 'us'), ('xkb', 'ua')]\""
+    - name: org.gnome.desktop.input-sources per-window
+      value: "true"
 
     - name:  org.gnome.desktop.peripherals.touchpad tap-to-click
       value: "true"
