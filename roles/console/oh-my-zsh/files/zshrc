@@ -38,6 +38,5 @@ source $ZSH/oh-my-zsh.sh
 
 alias gti='git'
 alias giti='git'
-alias ghit='git -c user.email="dmytr@users.noreply.github.com" -c user.name="dmytr"'
 
 export LESS='-SRXF'

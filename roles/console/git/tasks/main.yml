@@ -13,9 +13,23 @@
     group: "{{ user_name }}"
     state: link
 
-- name: Link ~/.gitconfig.local
+- name: Configure ~/.gitconfig.local
   template:
     src: gitconfig.local
     dest: "{{ home_dir }}/.gitconfig.local"
     owner: "{{ user_name }}"
     group: "{{ user_name }}"
+
+- name: Configure ~/.gitconfig.work
+  template:
+    src: gitconfig.work
+    dest: "{{ home_dir }}/.gitconfig.work"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+  when: (git_work_workspace is defined) and (git_work_workspace | trim  != '')
+
+- name: Remove ~/.gitconfig.work
+  file:
+    path: "{{ home_dir }}/.gitconfig.work"
+    state: absent
+  when: (git_work_workspace is not defined) or (git_work_workspace | trim  == '')

@@ -1,3 +1,11 @@
 [user]
-  name = {{ git_name }}
-  email = {{ git_email }}
+  name  = {{ git_name_personal }}
+  email = {{ git_email_personal }}
+{% if git_gpg_key_personal %}
+  signingkey = {{ git_gpg_key_personal }}
+{% endif %}
+
+{% if git_work_workspace %}
+[includeIf "gitdir:{{ git_work_workspace }}"]
+  path = ~/.gitconfig.work
+{% endif %}
