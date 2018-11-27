@@ -2,22 +2,3 @@
   path = vendor/oh-my-zsh
   url = https://github.com/robbyrussell/oh-my-zsh.git
 
-[submodule "plugged-base16-vim"]
-  path = roles/console/neovim/files/plugged/base16-vim
-  url = https://github.com/chriskempson/base16-vim.git
-
-[submodule "plugged-ctrlp.vim"]
-  path = roles/console/neovim/files/plugged/ctrlp.vim
-  url = https://github.com/kien/ctrlp.vim.git
-
-[submodule "plugged-gruvbox"]
-  path = roles/console/neovim/files/plugged/gruvbox
-  url = https://github.com/morhetz/gruvbox.git
-
-[submodule "plugged-nerdtree"]
-  path = roles/console/neovim/files/plugged/nerdtree
-  url = https://github.com/scrooloose/nerdtree.git
-
-[submodule "plugged-vim-stylish-haskell"]
-  path = roles/console/neovim/files/plugged/vim-stylish-haskell
-  url = https://github.com/nbouscal/vim-stylish-haskell.git
