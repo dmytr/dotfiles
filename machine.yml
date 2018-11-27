@@ -17,6 +17,7 @@
   roles:
 
     - system/profile
+    - system/swap
     - system/misc
 
     - console/profile
