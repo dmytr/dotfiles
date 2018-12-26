@@ -6,8 +6,10 @@
     - neovim
     - python2-devel
     - python2-pip
+    - python2-neovim
     - python3-devel
     - python3-pip
+    - python3-neovim
 
 - name: Remove vi and vim packages
   package: name="{{ item }}" state=absent
