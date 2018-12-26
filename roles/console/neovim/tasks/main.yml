@@ -1,7 +1,9 @@
 ---
 
 - name: Install packages
-  package: name="{{ item }}" state=latest
+  package:
+    name: "{{ item }}"
+    state: latest
   with_items:
     - neovim
     - python2-devel
@@ -12,13 +14,18 @@
     - python3-neovim
 
 - name: Remove vi and vim packages
-  package: name="{{ item }}" state=absent
+  package:
+    name: "{{ item }}"
+    state: absent
   with_items:
     - vi
     - vim
 
 - name: Update alternatives to use NeoVim
-  alternatives: name="{{ item }}" link="/usr/bin/{{item }}" path="/usr/bin/nvim"
+  alternatives:
+    name: "{{ item }}"
+    link: "/usr/bin/{{item }}"
+    path: "/usr/bin/nvim"
   with_items:
     - vi
     - vim
@@ -26,19 +33,52 @@
 
 - name: Create configuration folders
   file:
-    path: "{{ home_dir }}/.config"
+    path: "{{ item }}"
     owner: "{{ user_name }}"
     group: "{{ user_group }}"
     state: directory
+  with_items:
+    - "{{ home_dir }}/.config"
+    - "{{ home_dir }}/.cache/vimfiles/repos/github.com/Shougo"
+    - "{{ home_dir }}/.local/share/fonts"
 
 - name: Link configuration files
   file:
-    src: "{{ role_path }}/files"
+    src: "{{ playbook_dir }}/vendor/SpaceVim"
     dest: "{{ home_dir }}/.config/nvim"
     owner: "{{ user_name }}"
     group: "{{ user_group }}"
     state: link
 
-- name: Install plugins
-  shell: "vim +PlugInstall +PlugUpdate +qall"
-  become: no
+- name: Link spacevim configuration files
+  file:
+    src: "{{ role_path }}/files/spacevim.d"
+    dest: "{{ home_dir }}/.SpaceVim.d"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    state: link
+
+- name: Install plugin manager
+  file:
+    src: "{{ playbook_dir }}/vendor/dein.vim"
+    dest: "{{ home_dir }}/.cache/vimfiles/repos/github.com/Shougo/dein.vim"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    state: link
+
+- name: Find fonts
+  find:
+    paths: "{{ role_path }}/files/fonts"
+    patterns: "*.ttf"
+    recurse: no
+  register: fonts
+
+- name: Install fonts
+  file:
+    src: "{{ role_path }}/files/fonts/{{ item.path | basename }}"
+    dest: "{{ home_dir }}/.local/share/fonts/{{ item.path | basename }}"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    state: link
+  with_items: "{{ fonts.files }}"
+  notify: "rebuild fonts cache"

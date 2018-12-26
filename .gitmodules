@@ -2,3 +2,10 @@
   path = vendor/oh-my-zsh
   url = https://github.com/robbyrussell/oh-my-zsh.git
 
+[submodule "vendor/dein.vim"]
+  path = vendor/dein.vim
+  url = https://github.com/Shougo/dein.vim.git
+
+[submodule "vendor/SpaceVim"]
+  path = vendor/SpaceVim
+  url = https://github.com/SpaceVim/SpaceVim.git
