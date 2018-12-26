@@ -9,3 +9,8 @@
 [includeIf "gitdir:{{ git_work_workspace }}"]
   path = ~/.gitconfig.work
 {% endif %}
+
+{% for i in git_instead_of %}
+[url "{{ i.repl }}"]
+  insteadOf = {{ i.dest }}
+{% endfor %}

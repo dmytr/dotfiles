@@ -12,3 +12,7 @@ git_work_workspace: ""
 git_name_work:      ""
 git_email_work:     ""
 git_gpg_key_work:   ""
+
+git_instead_of:
+  - dest: "?"
+    repl: "?"
