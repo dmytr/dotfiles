@@ -40,3 +40,5 @@ alias gti='git'
 alias giti='git'
 
 export LESS='-SRXF'
+
+source ~/.nix-profile/etc/profile.d/nix.sh
