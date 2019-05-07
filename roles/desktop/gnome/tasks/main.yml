@@ -12,6 +12,26 @@
     # Install from COPR `dnf copr enable dmytr/gnome-shell-goodies`
     #- gnome-shell-extension-middle-tap
 
+- name: Fix Numix Square icons. Create folders.
+  file:
+    path: "{{ home_dir }}/.local/share/icons/Numix-Square/48/apps"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    state: directory
+
+- name: Fix Numix Square icons. Link icons.
+  file:
+    src: "/usr/share/icons/Numix-Square/48/apps/{{ item.from }}"
+    dest: "{{ home_dir }}/.local/share/icons/Numix-Square/48/apps/{{ item.to }}"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    state: link
+  with_items:
+    - from: terminator.svg
+      to: terminator.svg
+    - from: visualstudiocode.svg
+      to: code.svg
+
 - name: Configure GNOME
   shell: "dconf load / < {{ role_path }}/files/dconf.ini"
   become: no
