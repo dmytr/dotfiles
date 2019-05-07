@@ -5,7 +5,7 @@
     name:        docker-ce-stable
     file:        docker-ce
     description: Docker CE Stable - $basearch
-    baseurl:     https://download.docker.com/linux/fedora/28/$basearch/stable
+    baseurl:     https://download.docker.com/linux/fedora/29/$basearch/stable
     gpgkey:      https://download.docker.com/linux/fedora/gpg
     enabled:     yes
     gpgcheck:    yes
@@ -14,6 +14,7 @@
   package: name="{{ item }}" state=latest
   with_items:
     - docker-ce
+    - docker-compose
 
 - name: Enable service
   service:
@@ -26,3 +27,4 @@
     name: "{{ user_name }}"
     groups: "docker"
     append: yes
+
