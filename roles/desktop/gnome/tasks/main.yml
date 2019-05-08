@@ -27,7 +27,7 @@
     group: "{{ user_group }}"
     state: link
   with_items:
-    - from: terminator.svg
+    - from: terminal.svg
       to: terminator.svg
     - from: visualstudiocode.svg
       to: code.svg
