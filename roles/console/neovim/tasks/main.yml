@@ -6,9 +6,6 @@
     state: latest
   with_items:
     - neovim
-    - python2-devel
-    - python2-pip
-    - python2-neovim
     - python3-devel
     - python3-pip
     - python3-neovim
