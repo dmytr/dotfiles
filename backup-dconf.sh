@@ -21,8 +21,10 @@ org/gnome/evince/default
 org/gnome/simple-scan
 org/gnome/Totem
 org/gnome/cheese
+org/gnome/Weather
 `crudini --get $dconf_ini | grep 'org/gnome/file-roller'`
 `crudini --get $dconf_ini | grep 'org/gnome/evolution'`
+`crudini --get $dconf_ini | grep 'org/gnome/rhythmbox'`
 `crudini --get $dconf_ini | grep 'org/gnome/gnome-system-monitor'`
 `crudini --get $dconf_ini | grep 'org/gnome/nm-applet/eap'`
 `crudini --get $dconf_ini | grep 'org/gnome/desktop/notifications'`
