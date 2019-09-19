@@ -1,12 +1,16 @@
 ---
 
 - name: Install Zsh package
-  package: name="{{ item }}" state=latest
+  package:
+    name: "{{ item }}"
+    state: latest
   with_items:
     - zsh
 
 - name: Set Zsh as a shell for user "{{ user_name }}"
-  user: name="{{ user_name }}" shell=/bin/zsh
+  user:
+    name: "{{ user_name }}"
+    shell: /bin/zsh
 
 - name: Link ~/.oh-my-zsh
   file:
@@ -34,3 +38,15 @@
     group: "{{ user_group }}"
     state: link
     force: yes
+
+- name: Link additional plugins into ~/.oh-my-zsh/custom/plugins
+  file:
+    src: "{{ playbook_dir }}/vendor/{{ item }}"
+    dest: "{{ home_dir }}/.oh-my-zsh/custom/plugins/{{ item }}"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    state: link
+    force: yes
+  with_items:
+    - zsh-autosuggestions
+    - zsh-history-substring-search

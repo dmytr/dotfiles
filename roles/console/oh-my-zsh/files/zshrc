@@ -32,7 +32,12 @@ ZSH_THEME="geoffgarside"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git history-substring-search docker stack mvn gradle npm yarn sbt kubectl)
+plugins=(git zsh-history-substring-search zsh-autosuggestions docker stack mvn gradle npm yarn sbt)
+
+# zsh-histrory0substring-plugin configuration
+export HISTORY_SUBSTRING_SEARCH_FUZZY='yes'
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
 
 source $ZSH/oh-my-zsh.sh
 

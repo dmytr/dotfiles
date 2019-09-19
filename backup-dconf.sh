@@ -28,6 +28,11 @@ org/gnome/Weather
 `crudini --get $dconf_ini | grep 'org/gnome/gnome-system-monitor'`
 `crudini --get $dconf_ini | grep 'org/gnome/nm-applet/eap'`
 `crudini --get $dconf_ini | grep 'org/gnome/desktop/notifications'`
+`crudini --get $dconf_ini | grep 'org/gnome/baobab'`
+`crudini --get $dconf_ini | grep 'org/gnome/desktop/a11y/magnifier'`
+`crudini --get $dconf_ini | grep 'org/gnome/meld'`
+`crudini --get $dconf_ini | grep 'org/gnome/boxes'`
+`crudini --get $dconf_ini | grep 'org/virt-manager/virt-manager'`
 "
 
 IFS=$'\n'
