@@ -34,15 +34,15 @@ ZSH_THEME="geoffgarside"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git zsh-history-substring-search zsh-autosuggestions docker stack mvn gradle npm yarn sbt)
 
-# zsh-histrory0substring-plugin configuration
-export HISTORY_SUBSTRING_SEARCH_FUZZY='yes'
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
-
 source $ZSH/oh-my-zsh.sh
 
 alias gti='git'
 alias giti='git'
 
 export LESS='-SRXF'
+
+# zsh-histrory-substring-plugin configuration
+export HISTORY_SUBSTRING_SEARCH_FUZZY='yes'
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
 
