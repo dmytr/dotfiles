@@ -1,6 +1,5 @@
 ---
-
 - name: "enable config backup service"
   systemd:
-    name: config-backup
+    name: config-backup.service
     enabled: yes

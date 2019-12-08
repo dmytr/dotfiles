@@ -31,6 +31,8 @@
       remote: flathub
     - name: com.getpostman.Postman
       remote: flathub
+    - name: org.gimp.GIMP
+      remote: flathub
 
 - name: Link custom desktop entries
   file:
@@ -49,3 +51,5 @@
   with_items:
     - from: idea.svg
       to: idea.svg
+    - from: com.getpostman.Postman.svg
+      to: com.getpostman.Postman.svg
