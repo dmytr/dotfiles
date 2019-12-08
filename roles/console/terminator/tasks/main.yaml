@@ -1,7 +1,6 @@
 ---
-
 - name: Install Terminator package
-  package: name="{{ item }}" state=latest
+  shell: "{{ install_cmd }} {{ item }}"
   with_items:
     - terminator
 

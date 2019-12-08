@@ -1,16 +1,12 @@
 ---
-
 - name: Install packages
-  package: name="{{ item }}" state=latest
+  shell: "{{ install_cmd }} {{ item }}"
   with_items:
     - numix-icon-theme
     - numix-icon-theme-square
+    - gnome-shell-extension-dash-to-dock
+    - gnome-shell-extension-topicons-plus
     - gnome-shell-extension-windowsNavigator
-    # Instead install from extensions.gnome.org via Software + middleclickclose
-    #- gnome-shell-extension-dash-to-dock
-    #- gnome-shell-extension-topicons-plus
-    # Install from COPR `dnf copr enable dmytr/gnome-shell-goodies`
-    #- gnome-shell-extension-middle-tap
 
 - name: Fix Numix Square icons. Create folders.
   file:
@@ -23,8 +19,6 @@
   file:
     src: "/usr/share/icons/Numix-Square/48/apps/{{ item.from }}"
     dest: "{{ home_dir }}/.local/share/icons/Numix-Square/48/apps/{{ item.to }}"
-    owner: "{{ user_name }}"
-    group: "{{ user_group }}"
     state: link
   with_items:
     - from: terminal.svg
@@ -35,3 +29,26 @@
 - name: Configure GNOME
   shell: "dconf load / < {{ role_path }}/files/dconf.ini"
   become: no
+
+- name: Disable Wayland
+  ini_file:
+    path: /etc/gdm/custom.conf
+    section: daemon
+    option: WaylandEnable
+    value: "false"
+
+- name: Make X.org session default
+  ini_file:
+    path: /etc/gdm/custom.conf
+    section: daemon
+    option: DefaultSession
+    value: gnome-xorg.desktop
+
+- name: Configure touchpad
+  copy:
+    src: "{{ role_path }}/files/40-libinput.conf"
+    dest: /etc/X11/xorg.conf.d/40-libinput.conf
+    owner: "root"
+    group: "root"
+    mode: "0644"
+    force: yes

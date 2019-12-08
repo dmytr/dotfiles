@@ -1,0 +1,19 @@
+---
+- name: Install packages from "C Development Tools and Libraries" and a few extras
+  shell: "{{ install_cmd }} {{ item }}"
+  with_items:
+    - autoconf
+    - automake
+    - binutils
+    - bison
+    - flex
+    - gcc
+    - gcc-c++
+    - gdb
+    - glibc-devel
+    - libtool
+    - make
+    - pkgconf
+    - strace
+    - elfutils
+    - patch

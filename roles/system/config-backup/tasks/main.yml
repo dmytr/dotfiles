@@ -1,0 +1,34 @@
+---
+- name: Init git repo for configuration
+  shell:
+    cmd: git init
+    chdir: /etc
+
+- name: Configure git repo
+  git_config:
+    repo: /etc
+    scope: local
+    name: "{{ item.key }}"
+    value: "{{ item.value }}"
+  with_items:
+    - key: user.name
+      value: root
+    - key: user.email
+      value: root@localhost
+
+- name: Install executable
+  copy:
+    src: "{{ role_path }}/files/config-backup.sh"
+    dest: /usr/local/bin/config-backup.sh
+    owner: "root"
+    group: "root"
+    mode: "0744"
+
+- name: Install service
+  copy:
+    src: "{{ role_path }}/files/config-backup.service"
+    dest: /etc/systemd/system/config-backup.service
+    owner: "root"
+    group: "root"
+    mode: "0644"
+  notify: "enable config backup service"

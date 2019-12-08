@@ -1,32 +1,9 @@
 ---
-
 - name: Install packages
-  package:
-    name: "{{ item }}"
-    state: latest
+  shell: "{{ install_cmd }} {{ item }}"
   with_items:
     - neovim
-    - python3-devel
-    - python3-pip
     - python3-neovim
-
-- name: Remove vi and vim packages
-  package:
-    name: "{{ item }}"
-    state: absent
-  with_items:
-    - vi
-    - vim
-
-- name: Update alternatives to use NeoVim
-  alternatives:
-    name: "{{ item }}"
-    link: "/usr/bin/{{item }}"
-    path: "/usr/bin/nvim"
-  with_items:
-    - vi
-    - vim
-    - editor
 
 - name: Create configuration folders
   file:

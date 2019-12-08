@@ -6,13 +6,13 @@
 
 do_init() {
     git submodule init
-    git submodule update
+    git submodule update --init --recursive
 }
 
 do_venv() {
     python3 -m venv .env
     . .env/bin/activate
-    pip install ansible
+    pip install -U pip ansible
 }
 
 do_install() {

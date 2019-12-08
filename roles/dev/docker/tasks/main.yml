@@ -1,17 +1,16 @@
 ---
-
 - name: Add repo
   yum_repository:
-    name:        docker-ce-stable
-    file:        docker-ce
+    name: docker-ce-stable
+    file: docker-ce
     description: Docker CE Stable - $basearch
-    baseurl:     https://download.docker.com/linux/fedora/30/$basearch/stable
-    gpgkey:      https://download.docker.com/linux/fedora/gpg
-    enabled:     yes
-    gpgcheck:    yes
+    baseurl: https://download.docker.com/linux/fedora/{{ ansible_distribution_version }}/$basearch/stable
+    gpgkey: https://download.docker.com/linux/fedora/gpg
+    enabled: yes
+    gpgcheck: yes
 
 - name: Install packages
-  package: name="{{ item }}" state=latest
+  shell: "{{ install_cmd }} {{ item }}"
   with_items:
     - docker-ce
     - docker-compose
@@ -27,4 +26,3 @@
     name: "{{ user_name }}"
     groups: "docker"
     append: yes
-

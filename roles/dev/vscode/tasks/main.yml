@@ -1,16 +1,15 @@
 ---
-
 - name: Add repo
   yum_repository:
-    name:        vscode
-    file:        vscode
+    name: vscode
+    file: vscode
     description: Visual Studio Code
-    baseurl:     https://packages.microsoft.com/yumrepos/vscode
-    gpgkey:      https://packages.microsoft.com/keys/microsoft.asc
-    enabled:     yes
-    gpgcheck:    yes
+    baseurl: https://packages.microsoft.com/yumrepos/vscode
+    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+    enabled: yes
+    gpgcheck: yes
 
 - name: Install packages
-  package: name="{{ item }}" state=latest
+  shell: "{{ install_cmd }} {{ item }}"
   with_items:
     - code

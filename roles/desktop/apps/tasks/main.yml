@@ -1,0 +1,51 @@
+---
+- name: Install Chromium
+  shell: "{{ install_cmd }} {{ item }}"
+  with_items:
+    - chromium-freeworld
+    - intel-media-driver
+
+- name: Install apps via flatpak
+  flatpak:
+    name: "{{ item.name }}"
+    remote: "{{ item.remote }}"
+    state: present
+  with_items:
+    #- name: org.gnome.Calculator
+    #  remote: flathub
+    #- name: org.gnome.FileRoller
+    #  remote: flathub
+    #- name: org.gnome.eog
+    #  remote: flathub
+    #- name: org.gnome.gedit
+    #  remote: flathub
+    #- name: org.libreoffice.LibreOffice
+    #  remote: flathub
+    - name: org.gnome.meld
+      remote: flathub
+    - name: org.videolan.VLC
+      remote: flathub
+    #- name: com.visualstudio.code
+    #  remote: flathub
+    - name: com.jetbrains.IntelliJ-IDEA-Community
+      remote: flathub
+    - name: com.getpostman.Postman
+      remote: flathub
+
+- name: Link custom desktop entries
+  file:
+    src: "{{ role_path }}/files/desktop/{{ item }}"
+    dest: "{{ home_dir }}/.local/share/applications/{{ item }}"
+    state: link
+  with_items:
+    - chromium-freeworld.desktop
+    - idea.desktop
+
+- name: Link custom icons
+  file:
+    src: "{{ role_path }}/files/icons/{{ item.from }}"
+    dest: "{{ home_dir }}/.local/share/icons/Numix-Square/48/apps/{{ item.to }}"
+    state: link
+  with_items:
+    - from: idea.svg
+      to: idea.svg

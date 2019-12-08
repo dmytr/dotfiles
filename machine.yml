@@ -1,11 +1,9 @@
 ---
-
 - hosts: all
 
   become: yes
 
   pre_tasks:
-
     - name: Use default settings file
       set_fact:
         settings_file: settings/settings.yml
@@ -15,10 +13,10 @@
       include_vars: "{{ settings_file }}"
 
   roles:
-
     - system/profile
     - system/swap
     - system/misc
+    - system/config-backup
 
     - console/profile
     - console/git
@@ -28,10 +26,12 @@
 
     - desktop/flatpak
     - desktop/rpmfusion
-    - desktop/codecs
     - desktop/gnome
+    - desktop/apps
+    - desktop/vpn
 
-    - dev/vscode
-    - dev/docker
+    - dev/base
     - dev/java
     - dev/nodejs
+    #- dev/docker
+    - dev/vscode

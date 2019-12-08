@@ -46,3 +46,6 @@ export HISTORY_SUBSTRING_SEARCH_FUZZY='yes'
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 
+alias vi='nvim'
+alias vim='nvim'
+

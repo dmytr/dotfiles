@@ -1,8 +1,6 @@
 ---
-
 - name: Install packages
-  dnf:
-    name:
-      - https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-29.noarch.rpm 
-      - https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-29.noarch.rpm
-    state: present
+  shell: "{{ install_cmd }} {{ item }}"
+  with_items:
+    - https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_version }}.noarch.rpm
+    - https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_version }}.noarch.rpm

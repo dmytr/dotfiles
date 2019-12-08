@@ -1,5 +1,4 @@
 ---
-
 - name: Create ~/.local/bin folder
   file:
     path: "{{ home_dir }}/.local/bin"

@@ -2,4 +2,4 @@
 - name: Install packages
   shell: "{{ install_cmd }} {{ item }}"
   with_items:
-    - java-latest-openjdk-devel
+    - NetworkManager-openvpn-gnome
