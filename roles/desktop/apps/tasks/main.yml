@@ -42,17 +42,17 @@
     src: "{{ role_path }}/files/desktop/{{ item }}"
     dest: "{{ home_dir }}/.local/share/applications/{{ item }}"
     state: link
+    force: true
   with_items:
     - chromium-freeworld.desktop
-    - idea.desktop
 
 - name: Link custom icons
   file:
     src: "{{ role_path }}/files/icons/{{ item.from }}"
-    dest: "{{ home_dir }}/.local/share/icons/Numix-Square/48/apps/{{ item.to }}"
+    dest: "{{ home_dir }}/.local/share/icons/Numix-Square/scalable/apps/{{ item.to }}"
     state: link
   with_items:
     - from: idea.svg
-      to: idea.svg
-    - from: com.getpostman.Postman.svg
+      to: com.jetbrains.IntelliJ-IDEA-Community.svg
+    - from: postman.svg
       to: com.getpostman.Postman.svg

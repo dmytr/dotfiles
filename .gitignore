@@ -4,3 +4,5 @@
 .vagrant
 machine.retry
 settings/settings.yml
+
+roles/console/neovim/files/spacevim.d/.netrwhist
