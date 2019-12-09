@@ -25,6 +25,7 @@
   vars:
     package_names:
       - patch
+      - curl
       - jq
 
 - name: Install packages via pipx
@@ -33,7 +34,13 @@
   vars:
     pipx_package: "{{ item.package }}"
     pipx_package_deps: "{{ item.deps | default([] )}}"
+    pipx_package_force: "{{ item.force | default(False) }}"
   with_items:
+    - package: pipx
+      force: True
     - package: pgcli
       deps:
         - libpq-devel
+    - package: podman-compose
+      deps:
+        - podman

@@ -1,14 +1,17 @@
 ---
 - name: Install [{{ package_names | mandatory | join(", ")}}] packages
   block:
-    - stat:
+    - name: Check if rpm-ostree is installed
+      stat:
         path: /usr/bin/rpm-ostree
       register: rpm_ostree
 
-    - shell: rpm-ostree install --idempotent --allow-inactive {{ package_names | join(" ") }}
+    - name: Install [{{ package_names | mandatory | join(", ")}}] via rpm-ostree
+      shell: rpm-ostree install --idempotent --allow-inactive {{ package_names | join(" ") }}
       when: rpm_ostree.stat.exists == True
 
-    - package:
+    - name: Install [{{ package_names | mandatory | join(", ")}}] via default package manager
+      package:
         name: "{{ to_install }}"
       with_items: "{{ package_names | mandatory | list }}"
       loop_control:
