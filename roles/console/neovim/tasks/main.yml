@@ -58,3 +58,11 @@
     state: link
   with_items: "{{ fonts.files }}"
   notify: "rebuild fonts cache"
+
+- name: Rebuild fonts cache
+  shell: "{{ item }}"
+  with_items:
+    - "fc-cache -vf"
+    - "mkfontdir {{ home_dir }}/.local/share/fonts"
+    - "mkfontscale {{ home_dir }}/.local/share/fonts"
+  become: no

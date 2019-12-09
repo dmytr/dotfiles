@@ -40,7 +40,9 @@
       force: True
     - package: pgcli
       deps:
+        - postgresql
         - libpq-devel
+        - python3-devel
     - package: podman-compose
       deps:
         - podman

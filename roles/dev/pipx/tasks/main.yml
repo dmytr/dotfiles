@@ -23,5 +23,5 @@
     package_names: "{{ pipx_package_deps | default([]) | list }}"
 
 - name: Install {{ pipx_package }} package via pipx
-  shell: "pipx install {{ pipx_package | mandatory }} {% if pipx_package_force == True %} --force {% else %}{% endif %}"
+  shell: "{{ home_dir }}/.local/bin/pipx install {{ pipx_package | mandatory }} {% if pipx_package_force == True %} --force {% else %}{% endif %}"
   become: no

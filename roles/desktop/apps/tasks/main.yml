@@ -35,6 +35,7 @@
       remote: flathub
     - name: org.gimp.GIMP
       remote: flathub
+  become: no
 
 - name: Link custom desktop entries
   file:
