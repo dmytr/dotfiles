@@ -1,9 +1,11 @@
 ---
 - name: Install Chromium
-  shell: "{{ install_cmd }} {{ item }}"
-  with_items:
-    - chromium-freeworld
-    - intel-media-driver
+  include_role:
+    name: system/package
+  vars:
+    package_names:
+      - chromium-freeworld
+      - intel-media-driver
 
 - name: Install apps via flatpak
   flatpak:

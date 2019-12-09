@@ -49,3 +49,5 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 alias vi='nvim'
 alias vim='nvim'
 
+alias docker='podman'
+alias docker-compose='podman-compose'

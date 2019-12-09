@@ -30,8 +30,8 @@
     - desktop/apps
     - desktop/vpn
 
-    - dev/base
+    # - dev/docker
     - dev/java
     - dev/nodejs
-    #- dev/docker
     - dev/vscode
+    - dev/tools

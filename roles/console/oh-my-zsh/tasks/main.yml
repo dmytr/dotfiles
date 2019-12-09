@@ -1,8 +1,10 @@
 ---
 - name: Install Zsh package
-  shell: "{{ install_cmd }} {{ item }}"
-  with_items:
-    - zsh
+  include_role:
+    name: system/package
+  vars:
+    package_names:
+      - zsh
 
 - name: Set Zsh as a shell for user "{{ user_name }}"
   user:

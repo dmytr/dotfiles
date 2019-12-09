@@ -1,0 +1,14 @@
+---
+- name: Install pipx
+  shell: /usr/bin/python3 -m pip install --user pipx
+  become: no
+
+- name: Install dependencies of {{ pipx_package | mandatory }} package
+  include_role:
+    name: system/package
+  vars:
+    package_names: "{{ pipx_package_deps | default([]) | list }}"
+
+- name: Install {{ pipx_package }} package via pipx
+  shell: "pipx install {{ pipx_package | mandatory }}"
+  become: no

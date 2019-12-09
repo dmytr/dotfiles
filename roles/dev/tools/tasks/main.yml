@@ -1,0 +1,39 @@
+---
+- name: Install packages from "C Development Tools and Libraries"
+  include_role:
+    name: system/package
+  vars:
+    package_names:
+      - autoconf
+      - automake
+      - binutils
+      - bison
+      - flex
+      - gcc
+      - gcc-c++
+      - gdb
+      - glibc-devel
+      - libtool
+      - make
+      - pkgconf
+      - strace
+      - elfutils
+
+- name: Install useful CLI tools
+  include_role:
+    name: system/package
+  vars:
+    package_names:
+      - patch
+      - jq
+
+- name: Install packages via pipx
+  include_role:
+    name: dev/pipx
+  vars:
+    pipx_package: "{{ item.package }}"
+    pipx_package_deps: "{{ item.deps | default([] )}}"
+  with_items:
+    - package: pgcli
+      deps:
+        - libpq-devel

@@ -1,9 +1,11 @@
 ---
 - name: Install packages
-  shell: "{{ install_cmd }} {{ item }}"
-  with_items:
-    - neovim
-    - python3-neovim
+  include_role:
+    name: system/package
+  vars:
+    package_names:
+      - neovim
+      - python3-neovim
 
 - name: Create configuration folders
   file:

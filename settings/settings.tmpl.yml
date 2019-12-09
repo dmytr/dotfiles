@@ -1,11 +1,4 @@
 ---
-# Shell command used to install packages. Package name should be the last argument.
-# For Fedora use:
-#   install_cmd: dnf install --assumeyes
-# For Fedora Silverblue use:
-#   install_cmd: rpm-ostree install --idempotent --allow-inactive
-install_cmd: "?"
-
 user_name: "?"
 user_group: "{{ user_name }}"
 home_dir: "/home/{{ user_name }}"

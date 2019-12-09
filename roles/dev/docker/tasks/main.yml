@@ -10,10 +10,12 @@
     gpgcheck: yes
 
 - name: Install packages
-  shell: "{{ install_cmd }} {{ item }}"
-  with_items:
-    - docker-ce
-    - docker-compose
+  include_role:
+    name: system/package
+  vars:
+    package_names:
+      - docker-ce
+      - docker-compose
 
 - name: Enable service
   service:

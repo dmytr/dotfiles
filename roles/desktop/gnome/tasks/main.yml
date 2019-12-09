@@ -1,12 +1,14 @@
 ---
 - name: Install packages
-  shell: "{{ install_cmd }} {{ item }}"
-  with_items:
-    - numix-icon-theme
-    - numix-icon-theme-square
-    - gnome-shell-extension-dash-to-dock
-    - gnome-shell-extension-topicons-plus
-    - gnome-shell-extension-windowsNavigator
+  include_role:
+    name: system/package
+  vars:
+    package_names:
+      - numix-icon-theme
+      - numix-icon-theme-square
+      - gnome-shell-extension-dash-to-dock
+      - gnome-shell-extension-topicons-plus
+      - gnome-shell-extension-windowsNavigator
 
 - name: Fix Numix Square icons. Create folders.
   file:

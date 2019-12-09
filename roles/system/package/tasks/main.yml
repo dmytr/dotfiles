@@ -1,0 +1,18 @@
+---
+- name: Install [{{ package_names | mandatory | join(", ")}}] packages
+  block:
+    - stat:
+        path: /usr/bin/rpm-ostree
+      register: rpm_ostree
+
+    - shell: rpm-ostree install --idempotent --allow-inactive {{ package_names | join(" ") }}
+      when: rpm_ostree.stat.exists == True
+
+    - package:
+        name: "{{ to_install }}"
+      with_items: "{{ package_names | mandatory | list }}"
+      loop_control:
+        loop_var: to_install
+      when: rpm_ostree.stat.exists == False
+
+  when: package_names != []

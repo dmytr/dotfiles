@@ -1,5 +1,7 @@
 ---
 - name: Install packages
-  shell: "{{ install_cmd }} {{ item }}"
-  with_items:
-    - NetworkManager-openvpn-gnome
+  include_role:
+    name: system/package
+  vars:
+    package_names:
+      - NetworkManager-openvpn-gnome
