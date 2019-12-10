@@ -27,6 +27,7 @@
       - patch
       - curl
       - jq
+      - htop
 
 - name: Install packages via pipx
   include_role:
