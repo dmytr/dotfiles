@@ -6,6 +6,9 @@
     package_names:
       - chromium-freeworld
       - intel-media-driver
+      - libva-intel-driver
+      - libva-intel-hybrid-driver
+      - libva-vdpau-driver
 
 - name: Install apps via flatpak
   flatpak:
