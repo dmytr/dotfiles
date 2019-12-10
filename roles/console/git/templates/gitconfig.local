@@ -7,7 +7,7 @@
 
 {% if git_work_workspace %}
 [includeIf "gitdir:{{ git_work_workspace }}"]
-  path = ~/.gitconfig.work
+  path = .gitconfig.work
 {% endif %}
 
 {% for i in git_instead_of %}
