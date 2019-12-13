@@ -1,0 +1,16 @@
+---
+- name: Install packages
+  include_role:
+    name: system/package
+  vars:
+    package_names:
+      - golang
+
+- name: Link ~/.config/profile.dgopath-bin.sh
+  file:
+    src: "{{ role_path }}/files/gopath-bin.sh"
+    dest: "{{ home_dir }}/.config/profile.d/gopath-bin.sh"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    state: link
+    force: yes
