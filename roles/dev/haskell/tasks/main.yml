@@ -1,0 +1,17 @@
+---
+- name: Install stack
+  include_role:
+    name: helpers/package-archive
+  vars:
+    package_archive:
+      name: stack
+      archive: "https://get.haskellstack.org/stable/linux-x86_64-static.tar.gz"
+      executables:
+        - src: stack
+          dest: stack
+
+- name: Fix libtinfo
+  file:
+    src: "/lib64/libtinfo.so.6"
+    dest: "/lib64/libtinfo.so.5"
+    state: link

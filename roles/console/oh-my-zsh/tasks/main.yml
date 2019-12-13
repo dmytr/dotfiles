@@ -1,10 +1,11 @@
 ---
-- name: Install Zsh package
+- name: Install oh-my-zsh packages
   include_role:
-    name: system/package
+    name: helpers/system-package
   vars:
-    package_names:
-      - zsh
+    system_package: "{{ item }}"
+  with_items:
+    - zsh
 
 - name: Set Zsh as a shell for user "{{ user_name }}"
   user:

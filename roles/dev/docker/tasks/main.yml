@@ -9,13 +9,14 @@
     enabled: yes
     gpgcheck: yes
 
-- name: Install packages
+- name: Install Docker packages
   include_role:
-    name: system/package
+    name: helpers/system-package
   vars:
-    package_names:
-      - docker-ce
-      - docker-compose
+    system_package: "{{ item }}"
+  with_items:
+    - docker-ce
+    - docker-compose
 
 - name: Enable service
   service:

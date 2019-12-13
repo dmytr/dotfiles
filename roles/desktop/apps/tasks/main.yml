@@ -1,14 +1,15 @@
 ---
 - name: Install Chromium
   include_role:
-    name: system/package
+    name: helpers/system-package
   vars:
-    package_names:
-      - chromium-freeworld
-      - intel-media-driver
-      - libva-intel-driver
-      - libva-intel-hybrid-driver
-      - libva-vdpau-driver
+    system_package: "{{ item }}"
+  with_items:
+    - chromium-freeworld
+    - intel-media-driver
+    - libva-intel-driver
+    - libva-intel-hybrid-driver
+    - libva-vdpau-driver
 
 - name: Install apps via flatpak
   flatpak:

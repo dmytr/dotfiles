@@ -1,49 +1,49 @@
 ---
 - name: Install packages from "C Development Tools and Libraries"
   include_role:
-    name: system/package
+    name: helpers/system-package
   vars:
-    package_names:
-      - autoconf
-      - automake
-      - binutils
-      - bison
-      - flex
-      - gcc
-      - gcc-c++
-      - gdb
-      - glibc-devel
-      - libtool
-      - make
-      - pkgconf
-      - strace
-      - elfutils
+    system_package: "{{ item }}"
+  with_items:
+    - autoconf
+    - automake
+    - binutils
+    - bison
+    - flex
+    - gcc
+    - gcc-c++
+    - gdb
+    - glibc-devel
+    - libtool
+    - make
+    - pkgconf
+    - strace
+    - elfutils
 
 - name: Install useful CLI tools
   include_role:
-    name: system/package
+    name: helpers/system-package
   vars:
-    package_names:
-      - patch
-      - curl
-      - jq
-      - htop
+    system_package: "{{ item }}"
+  with_items:
+    - patch
+    - curl
+    - jq
+    - htop
 
 - name: Install packages via pipx
   include_role:
-    name: dev/pipx
+    name: helpers/pipx-package
   vars:
-    pipx_package: "{{ item.package }}"
-    pipx_package_deps: "{{ item.deps | default([] )}}"
-    pipx_package_force: "{{ item.force | default(False) }}"
+    pipx_package: "{{ item }}"
   with_items:
-    - package: pipx
+    - name: pipx
       force: True
-    - package: pgcli
+    - name: pgcli
       deps:
         - postgresql
         - libpq-devel
         - python3-devel
-    - package: podman-compose
+    - name: podman-compose
       deps:
         - podman

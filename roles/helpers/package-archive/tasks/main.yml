@@ -1,0 +1,35 @@
+---
+- name: Install {{ package_archive.name | mandatory }} package archive
+  block:
+    - name: Prepare destination folder
+      file:
+        path: "{{ home_dir }}/Applications/{{ package_archive.name | mandatory }}/"
+        owner: "{{ user_name }}"
+        group: "{{ user_group }}"
+        state: directory
+
+    - name: Download and unarchive
+      unarchive:
+        src: "{{ package_archive.archive | mandatory }}"
+        dest: "{{ home_dir }}/Applications/{{ package_archive.name | mandatory }}/"
+        extra_opts: [--strip-components=1]
+        copy: no
+        owner: "{{ user_name }}"
+        group: "{{ user_group }}"
+
+    - name: Fix destination folder permissions
+      file:
+        path: "{{ home_dir }}/Applications/{{ package_archive.name | mandatory }}/"
+        recurse: yes
+        owner: "{{ user_name }}"
+        group: "{{ user_group }}"
+        state: directory
+
+    - name: Link executables
+      file:
+        src: "{{ home_dir }}/Applications/{{ package_archive.name | mandatory }}/{{ package_executable.src | mandatory }}"
+        dest: "{{ home_dir }}/.local/bin/{{ package_executable.dest | mandatory }}"
+        state: link
+      with_items: "{{ package_archive.executables | list }}"
+      loop_control:
+        loop_var: package_executable

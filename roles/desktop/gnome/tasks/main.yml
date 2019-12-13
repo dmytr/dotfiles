@@ -1,14 +1,15 @@
 ---
-- name: Install packages
+- name: Install GNOME customiztion packages
   include_role:
-    name: system/package
+    name: helpers/system-package
   vars:
-    package_names:
-      - numix-icon-theme
-      - numix-icon-theme-square
-      - gnome-shell-extension-dash-to-dock
-      - gnome-shell-extension-topicons-plus
-      - gnome-shell-extension-windowsNavigator
+    system_package: "{{ item }}"
+  with_items:
+    - numix-icon-theme
+    - numix-icon-theme-square
+    - gnome-shell-extension-dash-to-dock
+    - gnome-shell-extension-topicons-plus
+    - gnome-shell-extension-windowsNavigator
 
 - name: Fix Numix Square icons
   block:

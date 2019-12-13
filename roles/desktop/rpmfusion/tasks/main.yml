@@ -1,8 +1,9 @@
 ---
-- name: Install packages
+- name: Install PRM Fusion repositories
   include_role:
-    name: system/package
+    name: helpers/system-package
   vars:
-    package_names:
-      - https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_version }}.noarch.rpm
-      - https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_version }}.noarch.rpm
+    system_package: "{{ item }}"
+  with_items:
+    - https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_version }}.noarch.rpm
+    - https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_version }}.noarch.rpm

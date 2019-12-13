@@ -1,7 +1,8 @@
 ---
-- name: Install packages
+- name: Install VPN packages
   include_role:
-    name: system/package
+    name: helpers/system-package
   vars:
-    package_names:
-      - NetworkManager-openvpn-gnome
+    system_package: "{{ item }}"
+  with_items:
+    - NetworkManager-openvpn-gnome

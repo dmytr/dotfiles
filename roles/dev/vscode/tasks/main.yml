@@ -9,9 +9,10 @@
     enabled: yes
     gpgcheck: yes
 
-- name: Install packages
+- name: Install VS Code packages
   include_role:
-    name: system/package
+    name: helpers/system-package
   vars:
-    package_names:
-      - code
+    system_package: "{{ item }}"
+  with_items:
+    - code

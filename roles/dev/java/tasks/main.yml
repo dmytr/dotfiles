@@ -1,7 +1,8 @@
 ---
-- name: Install packages
+- name: Install OpenJDK packages
   include_role:
-    name: system/package
+    name: helpers/system-package
   vars:
-    package_names:
-      - java-latest-openjdk-devel
+    system_package: "{{ item }}"
+  with_items:
+    - java-latest-openjdk-devel

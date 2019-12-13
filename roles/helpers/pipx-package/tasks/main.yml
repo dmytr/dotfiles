@@ -4,11 +4,13 @@
     - stat:
         path: "{{ home_dir }}/.local/bin/pipx"
       register: pipx_link
+
     - pip:
         name: pipx
         virtualenv: "{{ home_dir }}/Applications/pipx"
         virtualenv_command: "/usr/bin/python3 -m venv"
       when: pipx_link.stat.exists == False
+
     - file:
         src: "{{ home_dir }}/Applications/pipx/bin/pipx"
         dest: "{{ home_dir }}/.local/bin/pipx"
@@ -16,12 +18,15 @@
       when: pipx_link.stat.exists == False
   become: no
 
-- name: Install dependencies of {{ pipx_package | mandatory }} package
+- name: Install dependencies of {{ pipx_package.name | mandatory }} package
   include_role:
-    name: system/package
+    name: helpers/system-package
   vars:
-    package_names: "{{ pipx_package_deps | default([]) | list }}"
+    system_package: "{{ pipx_package_dep }}"
+  with_items: "{{ pipx_package.deps | default([]) | list }}"
+  loop_control:
+    loop_var: pipx_package_dep
 
-- name: Install {{ pipx_package }} package via pipx
-  shell: "{{ home_dir }}/.local/bin/pipx install {{ pipx_package | mandatory }} {% if pipx_package_force == True %} --force {% else %}{% endif %}"
+- name: Install {{ pipx_package.name | mandatory }} package via pipx
+  shell: "{{ home_dir }}/.local/bin/pipx install {{ pipx_package.name | mandatory }} {% if pipx_package.force | default(False) == True %} --force {% else %}{% endif %}"
   become: no

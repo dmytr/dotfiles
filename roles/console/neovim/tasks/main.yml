@@ -1,11 +1,12 @@
 ---
-- name: Install packages
+- name: Install neovim packages
   include_role:
-    name: system/package
+    name: helpers/system-package
   vars:
-    package_names:
-      - neovim
-      - python3-neovim
+    system_package: "{{ item }}"
+  with_items:
+    - neovim
+    - python3-neovim
 
 - name: Create configuration folders
   file:
