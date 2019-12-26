@@ -10,6 +10,16 @@
         - src: stack
           dest: stack
 
+- name: Install commonly used native packages
+  include_role:
+    name: helpers/system-package
+  vars:
+    system_package: "{{ item }}"
+  with_items:
+    - pcre-devel
+    - gmp-devel
+    - zlib-devel
+
 - name: Fix libtinfo
   file:
     src: "/lib64/libtinfo.so.6"
