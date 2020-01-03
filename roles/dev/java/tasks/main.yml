@@ -6,3 +6,11 @@
     system_package: "{{ item }}"
   with_items:
     - java-latest-openjdk-devel
+
+- name: Install Flatpak SDKs
+  flatpak:
+    name:  org.freedesktop.Sdk.Extension.openjdk8
+    remote: flathub
+    state: present
+  become: no
+
