@@ -7,7 +7,7 @@
   with_items:
     - golang
 
-- name: Link ~/.config/profile.dgopath-bin.sh
+- name: Link ~/.config/profile.d/gopath-bin.sh
   file:
     src: "{{ role_path }}/files/gopath-bin.sh"
     dest: "{{ home_dir }}/.config/profile.d/gopath-bin.sh"
