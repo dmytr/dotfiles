@@ -7,6 +7,7 @@ dconf dump / > $dconf_ini
 echo '[end]' >> $dconf_ini
 
 ignored_key_prefixes="
+ca/desrt/dconf-editor
 org/gnome/baobab
 org/gnome/boxes
 org/gnome/calculator
@@ -31,6 +32,7 @@ org/gnome/nautilus/window-state
 org/gnome/nm-applet/eap
 org/gnome/rhythmbox
 org/gnome/simple-scan
+org/gnome/shell/extensions/paperwm
 org/gnome/shell/weather
 org/gnome/shell/world-clocks
 org/gnome/software

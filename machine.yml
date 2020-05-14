@@ -30,7 +30,7 @@
     - desktop/apps
     - desktop/vpn
 
-    # - dev/docker
+    - dev/podman
     - dev/java
     - dev/nodejs
     - dev/golang

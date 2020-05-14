@@ -9,8 +9,7 @@
 
 - name: Install Flatpak SDKs
   flatpak:
-    name:  org.freedesktop.Sdk.Extension.openjdk8
+    name:  org.freedesktop.Sdk.Extension.openjdk8//19.08
     remote: flathub
     state: present
   become: no
-
