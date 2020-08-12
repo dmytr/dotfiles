@@ -1,9 +1,6 @@
 ---
 - name: Install Chromium
-  include_role:
-    name: helpers/system-package
-  vars:
-    system_package: "{{ item }}"
+  package: "{{ item }}"
   with_items:
     - chromium-freeworld
     - intel-media-driver
@@ -15,24 +12,13 @@
   flatpak:
     name: "{{ item.name }}"
     remote: "{{ item.remote }}"
+    method: user
     state: present
   with_items:
-    #- name: org.gnome.Calculator
-    #  remote: flathub
-    #- name: org.gnome.FileRoller
-    #  remote: flathub
-    #- name: org.gnome.eog
-    #  remote: flathub
-    #- name: org.gnome.gedit
-    #  remote: flathub
-    #- name: org.libreoffice.LibreOffice
-    #  remote: flathub
     - name: org.gnome.meld
       remote: flathub
     - name: org.videolan.VLC
       remote: flathub
-    #- name: com.visualstudio.code
-    #  remote: flathub
     - name: com.jetbrains.IntelliJ-IDEA-Community
       remote: flathub
     - name: com.getpostman.Postman
@@ -41,22 +27,15 @@
       remote: flathub
   become: no
 
-- name: Link custom desktop entries
-  file:
-    src: "{{ role_path }}/files/desktop/{{ item }}"
-    dest: "{{ home_dir }}/.local/share/applications/{{ item }}"
-    state: link
-    force: true
-  with_items:
-    - chromium-freeworld.desktop
-
 - name: Link custom icons
   file:
-    src: "{{ role_path }}/files/icons/{{ item.from }}"
+    src: "{{ item.from }}"
     dest: "{{ home_dir }}/.local/share/icons/Numix-Square/scalable/apps/{{ item.to }}"
     state: link
   with_items:
-    - from: idea.svg
+    - from: "{{ home_dir }}/.local/share/flatpak/app/com.jetbrains.IntelliJ-IDEA-Community/current/active/export/share/icons/hicolor/scalable/apps/com.jetbrains.IntelliJ-IDEA-Community.svg"
       to: com.jetbrains.IntelliJ-IDEA-Community.svg
-    - from: postman.svg
+    - from: "{{ home_dir }}/.local/share/flatpak/app/com.getpostman.Postman/current/active/export/share/icons/hicolor/scalable/apps/com.getpostman.Postman.svg"
       to: com.getpostman.Postman.svg
+    - from: /usr/share/icons/Numix-Square/48/apps//chromium.svg
+      to: chromium-freeworld.svg

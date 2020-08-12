@@ -19,10 +19,7 @@
   become: no
 
 - name: Install dependencies of {{ pipx_package.name | mandatory }} package
-  include_role:
-    name: helpers/system-package
-  vars:
-    system_package: "{{ pipx_package_dep }}"
+  package: "{{ pipx_package_dep }}"
   with_items: "{{ pipx_package.deps | default([]) | list }}"
   loop_control:
     loop_var: pipx_package_dep

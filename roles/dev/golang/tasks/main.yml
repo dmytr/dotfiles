@@ -1,9 +1,6 @@
 ---
 - name: Install Go packages
-  include_role:
-    name: helpers/system-package
-  vars:
-    system_package: "{{ item }}"
+  package: "{{ item }}"
   with_items:
     - golang
 

@@ -33,7 +33,7 @@
     mode: "0644"
   notify: "enable config backup service"
 
-- name: Eenable config backup service
+- name: Enable config backup service
   systemd:
     name: config-backup.service
     enabled: yes

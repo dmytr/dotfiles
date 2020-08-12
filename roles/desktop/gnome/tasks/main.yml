@@ -1,9 +1,6 @@
 ---
 - name: Install GNOME customiztion packages
-  include_role:
-    name: helpers/system-package
-  vars:
-    system_package: "{{ item }}"
+  package: "{{ item }}"
   with_items:
     - numix-icon-theme
     - numix-icon-theme-square

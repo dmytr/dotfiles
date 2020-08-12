@@ -1,9 +1,6 @@
 ---
 - name: Install packages from "C Development Tools and Libraries"
-  include_role:
-    name: helpers/system-package
-  vars:
-    system_package: "{{ item }}"
+  package: "{{ item }}"
   with_items:
     - autoconf
     - automake
@@ -21,10 +18,7 @@
     - elfutils
 
 - name: Install useful CLI tools
-  include_role:
-    name: helpers/system-package
-  vars:
-    system_package: "{{ item }}"
+  package: "{{ item }}"
   with_items:
     - patch
     - curl
@@ -44,6 +38,3 @@
         - postgresql
         - libpq-devel
         - python3-devel
-    - name: podman-compose
-      deps:
-        - podman

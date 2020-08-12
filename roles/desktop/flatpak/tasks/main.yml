@@ -1,9 +1,6 @@
 ---
 - name: Install flatpak packages
-  include_role:
-    name: helpers/system-package
-  vars:
-    system_package: "{{ item }}"
+  package: "{{ item }}"
   with_items:
     - flatpak
 
@@ -11,5 +8,6 @@
   flatpak_remote:
     name: flathub
     state: present
+    method: user
     flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
   become: no
