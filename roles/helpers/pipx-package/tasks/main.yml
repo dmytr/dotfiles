@@ -19,7 +19,9 @@
   become: no
 
 - name: Install dependencies of {{ pipx_package.name | mandatory }} package
-  package: "{{ pipx_package_dep }}"
+  package:
+    name: "{{ pipx_package_dep }}"
+    state: present
   with_items: "{{ pipx_package.deps | default([]) | list }}"
   loop_control:
     loop_var: pipx_package_dep

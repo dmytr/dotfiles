@@ -1,6 +1,8 @@
 ---
 - name: Install VPN packages
-  package: "{{ item }}"
+  package:
+    name: "{{ item }}"
+    state: present
   with_items:
     - NetworkManager-openvpn-gnome
     - NetworkManager-openconnect-gnome

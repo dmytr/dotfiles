@@ -13,4 +13,5 @@
     - name: Install {{ system_package | mandatory }} via default package manager
       package:
         name: "{{ system_package }}"
+        state: present
       when: rpm_ostree.stat.exists == False

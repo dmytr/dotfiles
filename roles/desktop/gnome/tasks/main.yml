@@ -1,6 +1,8 @@
 ---
 - name: Install GNOME customiztion packages
-  package: "{{ item }}"
+  package:
+    name: "{{ item }}"
+    state: present
   with_items:
     - numix-icon-theme
     - numix-icon-theme-square

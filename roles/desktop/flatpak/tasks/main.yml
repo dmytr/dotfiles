@@ -1,6 +1,8 @@
 ---
 - name: Install flatpak packages
-  package: "{{ item }}"
+  package:
+    name: "{{ item }}"
+    state: present
   with_items:
     - flatpak
 

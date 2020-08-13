@@ -10,6 +10,8 @@
     gpgcheck: yes
 
 - name: Install VS Code packages
-  package: "{{ item }}"
+  package:
+    name: "{{ item }}"
+    state: present
   with_items:
     - code

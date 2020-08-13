@@ -1,6 +1,8 @@
 ---
 - name: Install Node packages
-  package: "{{ item }}"
+  package:
+    name: "{{ item }}"
+    state: present
   with_items:
     - nodejs
 

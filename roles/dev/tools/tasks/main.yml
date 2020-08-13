@@ -1,6 +1,8 @@
 ---
 - name: Install packages from "C Development Tools and Libraries"
-  package: "{{ item }}"
+  package:
+    name: "{{ item }}"
+    state: present
   with_items:
     - autoconf
     - automake
@@ -18,7 +20,9 @@
     - elfutils
 
 - name: Install useful CLI tools
-  package: "{{ item }}"
+  package:
+    name: "{{ item }}"
+    state: present
   with_items:
     - patch
     - curl

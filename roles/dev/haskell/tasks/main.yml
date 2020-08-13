@@ -10,7 +10,9 @@
   shell: "{{ home_dir }}/.local/bin/stack upgrade"
 
 - name: Install commonly used native packages
-  package: "{{ item }}"
+  package:
+    name: "{{ item }}"
+    state: present
   with_items:
     - pcre-devel
     - gmp-devel
