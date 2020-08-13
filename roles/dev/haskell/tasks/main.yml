@@ -3,6 +3,8 @@
   get_url:
     url: "https://github.com/commercialhaskell/stack/releases/download/v2.3.1/stack-2.3.1-linux-x86_64-static-bin"
     dest: "{{ home_dir }}/.local/bin/stack"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
     mode: "0755"
   become: no
 

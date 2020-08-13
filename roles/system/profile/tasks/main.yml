@@ -6,4 +6,5 @@
     dest: "/etc/profile.d/local-profile-d.sh"
     owner: root
     group: root
+    mode: "0644"
     force: yes
