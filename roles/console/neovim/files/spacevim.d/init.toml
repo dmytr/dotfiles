@@ -28,6 +28,8 @@
   vimcompatible = false
   enable_vimfiler_gitstatus = true
 
+  autocomplete_method = "coc"
+
 # Enable autocomplete layer
 [[layers]]
   name = 'autocomplete'
