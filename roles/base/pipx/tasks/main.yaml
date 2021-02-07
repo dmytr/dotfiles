@@ -1,7 +1,7 @@
-- name: Install OpenJDK packages
+- name: Install pipx
   package:
     name: "{{ item }}"
     state: present
   with_items:
-    - java-latest-openjdk-devel
+    - pipx
   become: yes

@@ -1,6 +1,0 @@
-[user]
-  name  = {{ git_name_work }}
-  email = {{ git_email_work }}
-{% if git_gpg_key_work %}
-  signingkey = {{ git_gpg_key_work }}
-{% endif %}

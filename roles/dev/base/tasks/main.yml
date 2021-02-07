@@ -1,0 +1,21 @@
+- name: Install useful CLI tools
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "@c-development"
+    - patch
+    - curl
+    - jq
+    - htop
+  become: yes
+
+- name: Install commonly used native libraries
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - libffi-devel
+    - python3-devel
+    - openssl-devel
+  become: yes

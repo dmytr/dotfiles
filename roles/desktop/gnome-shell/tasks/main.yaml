@@ -1,0 +1,62 @@
+- name: Install GNOME Shell packages
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - gnome-shell-extension-dash-to-dock
+    - gnome-shell-extension-topicons-plus
+    - gnome-shell-extension-windowsNavigator
+    - NetworkManager-openvpn-gnome
+    - NetworkManager-openconnect-gnome
+    - gnome-tweaks
+    - dconf
+  become: yes
+
+- name: Configure GNOME
+  shell: "dconf load / < {{ role_path }}/files/dconf.ini"
+
+- name: Configure Numix Square icons
+  block:
+    - package:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - numix-icon-theme
+        - numix-icon-theme-square
+      become: yes
+
+    - file:
+        path: "{{ home_dir }}/.local/share/icons/Numix-Square/scalable/apps"
+        owner: "{{ user_name }}"
+        group: "{{ user_group }}"
+        state: directory
+
+    - file:
+        src: "{{ home_dir }}/.local/share/icons/Numix-Square/scalable"
+        dest: "{{ home_dir }}/.local/share/icons/Numix-Square/48"
+        owner: "{{ user_name }}"
+        group: "{{ user_group }}"
+        state: link
+
+    - file:
+        src: "{{ home_dir }}/.local/share/icons/Numix-Square"
+        dest: "{{ home_dir }}/.local/share/icons/hicolor"
+        owner: "{{ user_name }}"
+        group: "{{ user_group }}"
+        state: link
+
+- name: Install themes for flatpak apps
+  flatpak:
+    name: "{{ item.name }}"
+    remote: "{{ item.remote }}"
+    method: user
+    state: present
+  with_items:
+    - name: org.gtk.Gtk3theme.Adwaita-dark
+      remote: flathub
+    - name: org.kde.PlatformTheme.QGnomePlatform/x86_64/5.15
+      remote: flathub
+    - name: org.kde.PlatformTheme.QtSNI/x86_64/5.15
+      remote: flathub
+    - name: org.kde.WaylandDecoration.QGnomePlatform-decoration/x86_64/5.15
+      remote: flathub

@@ -1,0 +1,24 @@
+- name: Install codecs, drivers, and firmware
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - "@multimedia"
+    - "@sound-and-video"
+    - "intel-media-driver"
+    - "libva-intel-driver"
+    - "libva-vdpau-driver"
+    - "mesa-vulkan-drivers"
+    - "gstreamer1-plugins-bad-free"
+    - "gstreamer1-plugins-bad-free-extras"
+    - "gstreamer1-plugins-bad-freeworld"
+    - "gstreamer1-plugins-good"
+    - "gstreamer1-plugins-good-extras"
+    - "gstreamer1-plugins-ugly"
+    - "gstreamer1-plugins-ugly-free"
+    - "gstreamer1-libav"
+    - "gstreamer1-vaapi"
+    - "gstreamer1-svt-av1"
+    - "gstreamer1-svt-vp9"
+    - "uhd-firmware"
+  become: yes

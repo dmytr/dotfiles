@@ -1,9 +1,7 @@
 .env
 .idea
 *.iml
-.vagrant
 .metals
-machine.retry
-settings/settings.yml
 
-roles/console/neovim/files/spacevim.d/.netrwhist
+settings.yml
+settings.yaml

@@ -1,10 +1,10 @@
----
 - name: Install terminator packages
   package:
     name: "{{ item }}"
     state: present
   with_items:
     - terminator
+  become: yes
 
 - name: Create ~/.config/terminator folder
   file:

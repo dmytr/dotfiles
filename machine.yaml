@@ -1,0 +1,35 @@
+- hosts: all
+
+  become: no
+
+  pre_tasks:
+    - name: Load settings.yaml
+      include_vars: "settings.yaml"
+
+  roles:
+    - base/sysctl
+    - base/profile
+    - base/flatpak
+    - base/rpmfusion
+    - base/pipx
+    - base/nix
+
+    - desktop/gnome-shell
+    - desktop/multimedia
+
+    - console/git
+    - console/oh-my-zsh
+    - console/spacevim
+    - console/terminator
+
+    - dev/base
+    - dev/vscode
+    - dev/idea
+    - dev/podman
+    - dev/pgcli
+    - dev/java
+    - dev/haskell
+    - dev/nodejs
+    - dev/coursier
+
+    - extra
