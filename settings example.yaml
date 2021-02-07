@@ -1,0 +1,31 @@
+user_name: "bobby"
+user_group: "{{ user_name }}"
+home_dir: "/home/{{ user_name }}"
+
+git_workspaces:
+  default:
+    name: "bobby"
+    email: "bobby@localhost"
+
+  bigco:
+    path: "~/bigco"
+    name: "Robert"
+    email: "robert@bigco.com"
+    gpg_key: "BA43CA"
+
+extra:
+  system:
+    - httpie
+
+  flatpak:
+    - name: com.getpostman.Postman
+      remote: flathub
+
+  pipx:
+    - poetry
+
+  nix:
+    - nixpkgs.hello
+
+  coursier:
+    - sbt

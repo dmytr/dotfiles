@@ -1,0 +1,16 @@
+- name: Download coursier binary
+  get_url:
+    url: "https://github.com/coursier/coursier/releases/download/v2.0.8/cs-x86_64-pc-linux"
+    checksum: "sha256:8a47e0edda1ddf403537e0ccda5739e72d0c63f3529231bf6ea92e52bfc2b564"
+    dest: "{{ home_dir }}/.local/bin/coursier"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    mode: "0744"
+
+- name: Link ~/.config/profile.d/coursier.sh
+  file:
+    src: "{{ role_path }}/files/profile.sh"
+    dest: "{{ home_dir }}/.config/profile.d/coursier.sh"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    state: link

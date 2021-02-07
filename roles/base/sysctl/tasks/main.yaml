@@ -1,0 +1,7 @@
+- name: Configure /etc/sysctl.d/70-fsnotify.conf
+  copy:
+    src: "{{ role_path }}/files/70-fsnotify.conf"
+    dest: "/etc/sysctl.d/70-fsnotify.conf"
+    owner: root
+    group: root
+  become: yes

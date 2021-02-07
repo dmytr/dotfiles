@@ -1,0 +1,24 @@
+- name: Install flatpak
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - flatpak
+  become: yes
+
+- name: Add the flathub repository
+  flatpak_remote:
+    name: flathub
+    state: present
+    method: user
+    flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+
+- name: Install Flatseal via flatpak
+  flatpak:
+    name: "{{ item.name }}"
+    remote: "{{ item.remote }}"
+    method: user
+    state: present
+  with_items:
+    - name: com.github.tchx84.Flatseal
+      remote: flathub

@@ -1,0 +1,6 @@
+[user]
+  name       = {{ item.value.name }}
+  email      = {{ item.value.email }}
+{% if 'gpg_key' in item.value and item.value.gpg_key %}
+  signingkey = {{ item.value.gpg_key }}
+{% endif %}

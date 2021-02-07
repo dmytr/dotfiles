@@ -1,0 +1,11 @@
+- name: Install pgcli dependencies
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - postgresql
+    - libpq-devel
+    - python3-devel
+  become: yes
+
+# TODO install via pipx

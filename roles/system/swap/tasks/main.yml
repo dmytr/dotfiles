@@ -1,9 +1,0 @@
----
-
-- name: Configure /etc/sysctl.d/10-swappiness.conf
-  copy:
-    src: "{{ role_path }}/files/10-swappiness.conf"
-    dest: "/etc/sysctl.d/10-swappiness.conf"
-    owner: root
-    group: root
-    force: yes

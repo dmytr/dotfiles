@@ -1,0 +1,74 @@
+- name: Install packages
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - zsh
+  become: yes
+
+- name: Set zsh as a shell for user "{{ user_name }}"
+  user:
+    name: "{{ user_name }}"
+    shell: /bin/zsh
+  become: yes
+
+- name: Configure ZDOTDIR in /etc/zshrc
+  blockinfile:
+    path: /etc/zshenv
+    block: |
+      if [[ -z "$XDG_CONFIG_HOME" ]] && [[ -d "$HOME/.config/zsh" ]]; then
+        export ZDOTDIR="$HOME/.config/zsh"
+      elif [[ -d "$XDG_CONFIG_HOME/zsh" ]]; then
+        export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+      fi
+  become: yes
+
+- name: Prepare ~/.config/zsh folder
+  file:
+    path: "{{ home_dir }}/.config/zsh"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    state: directory
+
+- name: Link ~/.config/zsh/.zshenv
+  file:
+    src: "{{ role_path }}/files/zshenv"
+    dest: "{{ home_dir }}/.config/zsh/.zshenv"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    state: link
+
+- name: Link ~/.config/zsh/.zprofile
+  file:
+    src: "{{ role_path }}/files/zprofile"
+    dest: "{{ home_dir }}/.config/zsh/.zprofile"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    state: link
+
+- name: Link ~/.config/zsh/.zshrc
+  file:
+    src: "{{ role_path }}/files/zshrc"
+    dest: "{{ home_dir }}/.config/zsh/.zshrc"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    state: link
+
+- name: Link ~/.local/oh-my-zsh
+  file:
+    src: "{{ playbook_dir }}/vendor/oh-my-zsh"
+    dest: "{{ home_dir }}/.local/oh-my-zsh"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    state: link
+
+- name: Link additional plugins into ~/.local/oh-my-zsh/custom/plugins
+  file:
+    src: "{{ playbook_dir }}/vendor/{{ item }}"
+    dest: "{{ home_dir }}/.local/oh-my-zsh/custom/plugins/{{ item }}"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    state: link
+  with_items:
+    - zsh-autosuggestions
+    - zsh-history-substring-search

@@ -1,1 +1,2 @@
 TERM=xterm-256color
+HISTFILE="${ZDOTDIR:-$HOME}/.zsh_history"

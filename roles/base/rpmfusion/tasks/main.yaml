@@ -1,0 +1,25 @@
+- name: Install PRM Fusion repositories
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_version }}.noarch.rpm
+    - https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_version }}.noarch.rpm
+  become: yes
+
+- name: Enable tainted PRM Fusion repositories
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - rpmfusion-free-release-tainted
+    - rpmfusion-nonfree-release-tainted
+  become: yes
+
+- name: Update AppStream metadata
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - "@core"
+  become: yes

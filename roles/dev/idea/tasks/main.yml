@@ -1,0 +1,9 @@
+- name: Install IDEA via flatpak
+  flatpak:
+    name: "{{ item.name }}"
+    remote: "{{ item.remote }}"
+    method: user
+    state: present
+  with_items:
+    - name: com.jetbrains.IntelliJ-IDEA-Community
+      remote: flathub

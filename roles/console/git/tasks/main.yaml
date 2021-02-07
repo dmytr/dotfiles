@@ -1,0 +1,45 @@
+- name: Install git packages
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - git
+  become: yes
+
+- name: Prepare ~/.config/git directory
+  file:
+    path: "{{ home_dir }}/.config/git"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    state: directory
+
+- name: Link ~/.config/git/config
+  file:
+    src: "{{ role_path }}/files/gitconfig"
+    dest: "{{ home_dir }}/.config/git/config"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    state: link
+
+- name: Configure ~/.config/git/config.local
+  template:
+    src: gitconfig.local
+    dest: "{{ home_dir }}/.config/git/config.local"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+
+- name: Configure workspaces
+  template:
+    src: gitconfig.workspace
+    dest: "{{ home_dir }}/.config/git/config.{{ item.key }}"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+  with_dict: "{{ git_workspaces }}"
+
+- name: Link ~/.config/profile.d/git.sh
+  file:
+    src: "{{ role_path }}/files/profile.sh"
+    dest: "{{ home_dir }}/.config/profile.d/git.sh"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    state: link

@@ -1,16 +1,10 @@
-[user]
-  name  = {{ git_name_personal }}
-  email = {{ git_email_personal }}
-{% if git_gpg_key_personal %}
-  signingkey = {{ git_gpg_key_personal }}
-{% endif %}
+[include]
+  path = config.default
 
-{% if git_work_workspace %}
-[includeIf "gitdir:{{ git_work_workspace }}"]
-  path = .gitconfig.work
-{% endif %}
+{% for workspace in git_workspaces %}
+{% if workspace != "default" %}
+[includeIf "gitdir:{{ git_workspaces[workspace].path }}"]
+  path = gitconfig.{{ workspace }}
 
-{% for i in git_instead_of %}
-[url "{{ i.repl }}"]
-  insteadOf = {{ i.dest }}
+{% endif %}
 {% endfor %}

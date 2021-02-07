@@ -1,0 +1,16 @@
+- name: Install extra system packages
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ extra.system }}"
+  when: "extra is defined and extra.system is defined"
+  become: yes
+
+- name: Install extra flatpak packages
+  flatpak:
+    name: "{{ item.name }}"
+    remote: "{{ item.remote }}"
+    method: user
+    state: present
+  with_items: "{{ extra.flatpak }}"
+  when: "extra is defined and extra.flatpak is defined"

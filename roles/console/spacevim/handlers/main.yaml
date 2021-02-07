@@ -1,0 +1,6 @@
+- name: Rebuild fonts cache
+  shell: "{{ item }}"
+  with_items:
+    - "fc-cache -vf > /dev/null"
+    - "mkfontdir {{ home_dir }}/.local/share/fonts > /dev/null"
+    - "mkfontscale {{ home_dir }}/.local/share/fonts > /dev/null"

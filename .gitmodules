@@ -1,19 +1,24 @@
-[submodule "oh-my-zsh"]
-  path = vendor/oh-my-zsh
-  url = https://github.com/robbyrussell/oh-my-zsh.git
-
-[submodule "vendor/dein.vim"]
-  path = vendor/dein.vim
-  url = https://github.com/Shougo/dein.vim.git
-
-[submodule "vendor/SpaceVim"]
-  path = vendor/SpaceVim
-  url = https://github.com/SpaceVim/SpaceVim.git
+[submodule "vendor/oh-my-zsh"]
+	path = vendor/oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
+	branch = master
 
 [submodule "vendor/zsh-autosuggestions"]
 	path = vendor/zsh-autosuggestions
-	url = https://github.com/zsh-users/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
+	branch = master
 
 [submodule "vendor/zsh-history-substring-search"]
 	path = vendor/zsh-history-substring-search
-	url = https://github.com/zsh-users/zsh-history-substring-search
+	url = https://github.com/zsh-users/zsh-history-substring-search.git
+	branch = master
+
+[submodule "vendor/SpaceVim"]
+	path = vendor/SpaceVim
+	url = https://github.com/SpaceVim/SpaceVim.git
+	branch = v1.6.0
+
+[submodule "vendor/dein.vim"]
+	path = vendor/dein.vim
+	url = https://github.com/Shougo/dein.vim.git
+	branch = master

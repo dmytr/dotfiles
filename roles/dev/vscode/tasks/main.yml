@@ -1,17 +1,35 @@
----
-- name: Add repo
-  yum_repository:
-    name: vscode
-    file: vscode
-    description: Visual Studio Code
-    baseurl: https://packages.microsoft.com/yumrepos/vscode
-    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
-    enabled: yes
-    gpgcheck: yes
+- name: Install vscode via flatpak
+  flatpak:
+    name: "{{ item.name }}"
+    remote: "{{ item.remote }}"
+    method: user
+    state: present
+  with_items:
+    - name: com.visualstudio.code
+      remote: flathub
 
-- name: Install VS Code packages
+- name: Install additional packages
   package:
     name: "{{ item }}"
     state: present
   with_items:
-    - code
+    - fira-code-fonts
+    - "@c-development"
+  become: yes
+
+- name: Fix annoying warning from LiveShare
+  file:
+    src: "{{ role_path }}/files/xprop.sh"
+    dest: "{{ home_dir }}/.var/app/com.visualstudio.code/data/node_modules/bin/xprop"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    mode: "0744"
+    state: link
+
+- name: Link ~/.config/profile.d/vscode.sh
+  file:
+    src: "{{ role_path }}/files/profile.sh"
+    dest: "{{ home_dir }}/.config/profile.d/vscode.sh"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    state: link
