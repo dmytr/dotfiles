@@ -8,4 +8,5 @@
     - python3-devel
   become: yes
 
-# TODO install via pipx
+- name: Install pgcli package via pipx
+  command: pipx install pgcli

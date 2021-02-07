@@ -14,3 +14,18 @@
     state: present
   with_items: "{{ extra.flatpak }}"
   when: "extra is defined and extra.flatpak is defined"
+
+- name: Install extra pipx packages
+  command: "pipx install {{ item }}"
+  with_items: "{{ extra.pipx }}"
+  when: "extra is defined and extra.pipx is defined"
+
+- name: Install extra Nix packages
+  command: "nix -iA {{ item }}"
+  with_items: "{{ extra.nix }}"
+  when: "extra is defined and extra.nix is defined"
+
+- name: Install extra coursier packages
+  command: "coursier install {{ item }}"
+  with_items: "{{ extra.coursier }}"
+  when: "extra is defined and extra.coursier is defined"

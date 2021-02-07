@@ -1,9 +1,11 @@
-- name: Install useful CLI tools
+- name: Install compilers and CLI tools
   package:
     name: "{{ item }}"
     state: present
   with_items:
     - "@c-development"
+    - rust
+    - cargo
     - patch
     - curl
     - jq
