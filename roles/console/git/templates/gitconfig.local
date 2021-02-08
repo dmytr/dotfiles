@@ -4,7 +4,7 @@
 {% for workspace in git_workspaces %}
 {% if workspace != "default" %}
 [includeIf "gitdir:{{ git_workspaces[workspace].path }}"]
-  path = gitconfig.{{ workspace }}
+  path = config.{{ workspace }}
 
 {% endif %}
 {% endfor %}
