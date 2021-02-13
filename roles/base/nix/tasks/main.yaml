@@ -1,2 +1,50 @@
-# TODO
-# https://releases.nixos.org/nix/nix-2.3.10/nix-2.3.10-x86_64-linux.tar.xz
+- name: Check if /nix/store exists
+  stat:
+    path: "/nix/store"
+  register: nix_store_dir
+
+- name: Install Nix
+  when: not nix_store_dir.stat.exists
+  block:
+    - name: Create /nix folder
+      file:
+        path: "/nix"
+        owner: "{{ user_name }}"
+        group: "{{ user_group }}"
+        mode: "0755"
+        state: directory
+      become: yes
+
+    - name: Create temp folder for Nix installer
+      tempfile:
+        state: directory
+      register: nix_installer_tmp
+
+    - name: Download Nix installer
+      get_url:
+        url: "https://releases.nixos.org/nix/nix-2.3.10/nix-2.3.10-x86_64-linux.tar.xz"
+        checksum: "sha256:2ea0cd17d53b2e860ec8e17b6de578aff1b11ebaf57117714a250bfd02768834"
+        dest: "{{ nix_installer_tmp.path }}/installer.tar.xz"
+        owner: "{{ user_name }}"
+        group: "{{ user_group }}"
+        mode: "0644"
+
+    - name: Unarchive Nix installer
+      unarchive:
+        src: "{{ nix_installer_tmp.path }}/installer.tar.xz"
+        dest: "{{ nix_installer_tmp.path }}"
+        extra_opts:
+          - "--strip-components=1"
+        owner: "{{ user_name }}"
+        group: "{{ user_group }}"
+
+    - name: Run Nix installer
+      command: "{{ nix_installer_tmp.path }}/install --no-daemon --no-modify-profile"
+
+- name: Link ~/.config/profile.d/nix.sh
+  file:
+    src: "{{ role_path }}/files/profile.sh"
+    dest: "{{ home_dir }}/.config/profile.d/nix.sh"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    state: link
