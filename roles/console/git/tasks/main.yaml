@@ -4,6 +4,7 @@
     state: present
   with_items:
     - git
+    - git-subrepo
   become: yes
 
 - name: Prepare ~/.config/git directory

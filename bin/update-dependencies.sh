@@ -3,4 +3,4 @@
 BASE="$(dirname $0)"
 cd $BASE/..
 
-git submodule foreach git pull
+git submodule foreach git up
