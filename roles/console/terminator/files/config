@@ -4,6 +4,15 @@
 [keybindings]
 [profiles]
   [[default]]
+    background_color = "#1d2021"
+    cursor_color = "#fbf1c7"
+    font = Source Code Pro 11
+    foreground_color = "#fbf1c7"
+    scrollback_lines = 5000000
+    show_titlebar = False
+    palette = "#282828:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#a89984:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
+    use_system_font = False
+  [[gruvbox-medium]]
     background_color = "#282828"
     cursor_color = "#fbf1c7"
     font = Source Code Pro 11
@@ -12,23 +21,23 @@
     show_titlebar = False
     palette = "#282828:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#a89984:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
     use_system_font = False
-  [[gruvbox-soft]]
-    background_color = "#282828"
-    cursor_color = "#7c6f64"
-    font = Source Code Pro 11
-    foreground_color = "#ebdbb2"
-    scrollback_lines = 5000000
-    show_titlebar = False
-    palette = "#181818:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#ebdbb2:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
-    use_system_font = False
   [[gruvbox-hard]]
     background_color = "#1d2021"
-    cursor_color = "#7c6f64"
+    cursor_color = "#fbf1c7"
     font = Source Code Pro 11
-    foreground_color = "#ebdbb2"
+    foreground_color = "#fbf1c7"
     scrollback_lines = 5000000
     show_titlebar = False
-    palette = "#1d2021:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#ebdbb2:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
+    palette = "#282828:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#a89984:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
+    use_system_font = False
+  [[one-dark]]
+    background_color = "#282c34"
+    cursor_color = "#abb2bf"
+    font = Source Code Pro 11
+    foreground_color = "#abb2bf"
+    scrollback_lines = 5000000
+    show_titlebar = False
+    palette = "#000000:#e06c75:#98c379:#d19a66:#61afef:#c678dd:#56b6c2:#abb2bf:#5c6370:#e06c75:#98c379:#d19a66:#61afef:#c678dd:#56b6c2:#ffffff"
     use_system_font = False
 [layouts]
   [[default]]
