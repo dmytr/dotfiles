@@ -9,4 +9,4 @@
   become: yes
 
 - name: Install pgcli package via pipx
-  command: pipx install pgcli
+  command: pipx install --force pgcli
