@@ -21,11 +21,11 @@ extra:
     - name: com.getpostman.Postman
       remote: flathub
 
-  pipx:
-    - poetry
-
   nix:
     - nixpkgs.hello
+
+  pipx:
+    - poetry
 
   coursier:
     - sbt

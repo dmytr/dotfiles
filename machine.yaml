@@ -23,6 +23,7 @@
     - console/terminator
 
     - dev/base
+    - dev/coursier
     - dev/vscode
     - dev/idea
     - dev/podman
@@ -30,6 +31,5 @@
     - dev/java
     - dev/haskell
     - dev/nodejs
-    - dev/coursier
 
     - extra

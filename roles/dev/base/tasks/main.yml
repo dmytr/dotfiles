@@ -4,8 +4,6 @@
     state: present
   with_items:
     - "@c-development"
-    - rust
-    - cargo
     - patch
     - curl
     - jq
