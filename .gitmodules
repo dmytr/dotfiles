@@ -16,7 +16,6 @@
 [submodule "vendor/SpaceVim"]
 	path = vendor/SpaceVim
 	url = https://github.com/SpaceVim/SpaceVim.git
-  branch = v1.6.0
 
 [submodule "vendor/dein.vim"]
 	path = vendor/dein.vim
