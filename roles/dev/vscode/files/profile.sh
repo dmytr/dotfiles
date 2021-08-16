@@ -1,1 +1,1 @@
-alias code="flatpak run com.visualstudio.code"
+alias code="$HOME/.local/share/flatpak/exports/bin/com.visualstudio.code"
