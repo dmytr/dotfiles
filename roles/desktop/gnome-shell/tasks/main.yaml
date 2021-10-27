@@ -54,7 +54,7 @@
   with_items:
     - name: org.gtk.Gtk3theme.Adwaita-dark
       remote: flathub
-    - name: org.kde.KStyle.Adwaita
+    - name: org.kde.KStyle.Adwaita/x86_64/5.15
       remote: flathub
     - name: org.kde.PlatformTheme.QGnomePlatform/x86_64/5.15
       remote: flathub

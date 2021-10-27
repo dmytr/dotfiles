@@ -30,9 +30,9 @@
     method: user
     state: present
   with_items:
-    - name: org.freedesktop.Platform.GL.default
+    - name: org.freedesktop.Platform.GL.default/x86_64/21.08
       remote: flathub
-    - name: org.freedesktop.Platform.VAAPI.Intel
+    - name: org.freedesktop.Platform.VAAPI.Intel/x86_64/21.08
       remote: flathub
-    - name: org.freedesktop.Platform.openh264
+    - name: org.freedesktop.Platform.openh264/x86_64/2.0
       remote: flathub
