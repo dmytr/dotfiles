@@ -14,3 +14,6 @@
     owner: "{{ user_name }}"
     group: "{{ user_group }}"
     state: link
+
+- name: Update coursier
+  command: "{{ home_dir }}/.local/bin/coursier install cs"

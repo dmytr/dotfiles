@@ -22,3 +22,17 @@
     - "gstreamer1-svt-vp9"
     - "uhd-firmware"
   become: yes
+
+- name: Install flatpak multimedia runtimes
+  flatpak:
+    name: "{{ item.name }}"
+    remote: "{{ item.remote }}"
+    method: user
+    state: present
+  with_items:
+    - name: org.freedesktop.Platform.GL.default
+      remote: flathub
+    - name: org.freedesktop.Platform.VAAPI.Intel
+      remote: flathub
+    - name: org.freedesktop.Platform.openh264
+      remote: flathub

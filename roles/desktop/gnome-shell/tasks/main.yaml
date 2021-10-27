@@ -4,7 +4,7 @@
     state: present
   with_items:
     - gnome-shell-extension-dash-to-dock
-    - gnome-shell-extension-topicons-plus
+    - gnome-shell-extension-appindicator
     - gnome-shell-extension-windowsNavigator
     - NetworkManager-openvpn-gnome
     - NetworkManager-openconnect-gnome
@@ -53,6 +53,8 @@
     state: present
   with_items:
     - name: org.gtk.Gtk3theme.Adwaita-dark
+      remote: flathub
+    - name: org.kde.KStyle.Adwaita
       remote: flathub
     - name: org.kde.PlatformTheme.QGnomePlatform/x86_64/5.15
       remote: flathub

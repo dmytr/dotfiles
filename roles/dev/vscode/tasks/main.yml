@@ -17,6 +17,13 @@
     - "@c-development"
   become: yes
 
+- name: Create ~/.var/app/com.visualstudio.code/data/node_modules/bin folder
+  file:
+    path: "{{ home_dir }}/.var/app/com.visualstudio.code/data/node_modules/bin"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    state: directory
+
 - name: Fix annoying warning from LiveShare
   file:
     src: "{{ role_path }}/files/xprop.sh"
