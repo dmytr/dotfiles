@@ -52,13 +52,13 @@
     method: user
     state: present
   with_items:
-    - name: org.gtk.Gtk3theme.Adwaita-dark
+    - name: org.gtk.Gtk3theme.Adwaita-dark/x86_64/3.22
       remote: flathub
-    - name: org.kde.KStyle.Adwaita/x86_64/5.15
+    - name: org.kde.KStyle.Adwaita/x86_64/5.15-21.08
       remote: flathub
-    - name: org.kde.PlatformTheme.QGnomePlatform/x86_64/5.15
+    - name: org.kde.PlatformTheme.QGnomePlatform/x86_64/5.15-21.08
       remote: flathub
-    - name: org.kde.PlatformTheme.QtSNI/x86_64/5.15
+    - name: org.kde.PlatformTheme.QtSNI/x86_64/5.15-21.08
       remote: flathub
-    - name: org.kde.WaylandDecoration.QGnomePlatform-decoration/x86_64/5.15
+    - name: org.kde.WaylandDecoration.QGnomePlatform-decoration/x86_64/5.15-21.08
       remote: flathub
