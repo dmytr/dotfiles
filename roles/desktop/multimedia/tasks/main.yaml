@@ -8,6 +8,7 @@
     - "intel-media-driver"
     - "libva-intel-driver"
     - "libva-vdpau-driver"
+    - "mesa-vdpau-drivers"
     - "mesa-vulkan-drivers"
     - "gstreamer1-plugins-bad-free"
     - "gstreamer1-plugins-bad-free-extras"
@@ -35,4 +36,6 @@
     - name: org.freedesktop.Platform.VAAPI.Intel/x86_64/21.08
       remote: flathub
     - name: org.freedesktop.Platform.openh264/x86_64/2.0
+      remote: flathub
+    - name: org.freedesktop.Platform.ffmpeg-full/x86_64/21.08
       remote: flathub
