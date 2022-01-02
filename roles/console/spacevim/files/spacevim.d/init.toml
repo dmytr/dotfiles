@@ -74,8 +74,8 @@
 [[layers]]
   name = "lang#python"
 
-[[layers]]
-  name = "lang#scala"
+#[[layers]]
+#  name = "lang#scala"
 
 [[layers]]
   name = "lang#sh"
