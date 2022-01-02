@@ -1,0 +1,25 @@
+- name: Install tmuxp
+  command: "pipx install --force tmuxp"
+
+- name: Create ~/.config/tmuxp folder
+  file:
+    path: "{{ home_dir }}/.config/tmuxp"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    state: directory
+
+- name: Link ~/.config/tmuxp/update-everything.yaml
+  file:
+    src: "{{ role_path }}/files/update-everything.yaml"
+    dest: "{{ home_dir }}/.config/tmuxp/update-everything.yaml"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    state: link
+
+- name: Link ~/.local/bin/update-everything
+  file:
+    src: "{{ role_path }}/files/update-everything.sh"
+    dest: "{{ home_dir }}/.local/bin/update-everything"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    state: link

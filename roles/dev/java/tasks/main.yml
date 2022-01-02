@@ -1,3 +1,6 @@
+- name: Install JDK
+  command: "{{ home_dir }}/.local/bin/coursier java-home --jvm openjdk:17 --update"
+
 - name: Link ~/.config/profile.d/java.sh
   file:
     src: "{{ role_path }}/files/profile.sh"

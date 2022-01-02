@@ -1,0 +1,17 @@
+session_name: update-everything
+suppress_history: true
+windows:
+  - window_name: update-everything
+    layout: tiled
+    panes:
+      - shell_command:
+          - flatpak update --assumeyes && exit
+      - shell_command:
+          - cs update && cs java-home --jvm openjdk:17 --update && exit
+      - shell_command:
+          - nix-channel --update && nix-env --upgrade && exit
+      - shell_command:
+          - pipx upgrade-all && exit
+      - shell_command:
+          - sudo dnf update && exit
+        focus: true

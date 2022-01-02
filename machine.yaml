@@ -13,6 +13,7 @@
     - base/rpmfusion
     - base/pipx
     - base/nix
+    - base/updates
 
     - desktop/gnome-shell
     - desktop/multimedia
