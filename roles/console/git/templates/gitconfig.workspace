@@ -3,4 +3,10 @@
   email      = {{ item.value.email }}
 {% if 'gpg_key' in item.value and item.value.gpg_key %}
   signingkey = {{ item.value.gpg_key }}
+
+[commit]
+    gpgsign = true
+
+[tag]
+    gpgsign = true
 {% endif %}

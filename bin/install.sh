@@ -15,7 +15,7 @@ do_init() {
 do_venv() {
     python3 -m venv .env
     . .env/bin/activate
-    pip install -U pip wheel ansible selinux dnf
+    pip install -U pip wheel ansible selinux
 }
 
 do_install() {
