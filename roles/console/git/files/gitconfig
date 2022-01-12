@@ -24,3 +24,7 @@
 [core]
   autocrlf = input
   commentchar = ~
+
+[advice]
+  skippedCherryPicks = false
+

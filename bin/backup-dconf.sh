@@ -9,12 +9,15 @@ dconf dump / > $dconf_ini
 echo '[end]' >> $dconf_ini
 
 ignored_key_prefixes="
+apps/seahorse
 ca/desrt/dconf-editor
 org/gnome/baobab
 org/gnome/boxes
 org/gnome/calculator
+org/gnome/calendar
 org/gnome/Characters
 org/gnome/cheese
+org/gnome/clocks
 org/gnome/control-center
 org/gnome/desktop/a11y/magnifier
 org/gnome/desktop/app-folders
