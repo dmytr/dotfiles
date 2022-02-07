@@ -7,7 +7,7 @@ windows:
       - shell_command:
           - flatpak update --assumeyes && exit
       - shell_command:
-          - cs update && cs java-home --jvm openjdk:17 --update && exit
+          - cs update && cs java-home --jvm openjdk:11 --update && cs java-home --jvm openjdk:17 --update && exit
       - shell_command:
           - nix-channel --update && nix-env --upgrade && exit
       - shell_command:

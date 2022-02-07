@@ -72,6 +72,7 @@ plugins=(git zsh-history-substring-search zsh-autosuggestions docker kubectl)
 source $ZSH/oh-my-zsh.sh
 
 export LESS='-SRXF'
+export LESSHISTFILE='-'
 
 # zsh-histrory-substring-plugin configuration
 export HISTORY_SUBSTRING_SEARCH_FUZZY='yes'
