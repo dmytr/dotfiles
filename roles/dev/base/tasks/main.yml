@@ -8,7 +8,7 @@
     - curl
     - jq
     - htop
-  become: yes
+  become: true
 
 - name: Install commonly used native libraries
   package:
@@ -18,4 +18,4 @@
     - libffi-devel
     - python3-devel
     - openssl-devel
-  become: yes
+  become: true

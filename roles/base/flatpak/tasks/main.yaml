@@ -4,7 +4,7 @@
     state: present
   with_items:
     - flatpak
-  become: yes
+  become: true
 
 - name: Add the flathub repository
   flatpak_remote:
@@ -12,6 +12,13 @@
     state: present
     method: user
     flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+
+- name: Add the flathub beta repository
+  flatpak_remote:
+    name: flathub-beta
+    state: present
+    method: user
+    flatpakrepo_url: https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 
 - name: Install Flatseal via flatpak
   flatpak:

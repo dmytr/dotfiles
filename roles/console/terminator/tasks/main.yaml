@@ -4,7 +4,7 @@
     state: present
   with_items:
     - terminator
-  become: yes
+  become: true
 
 - name: Create ~/.config/terminator folder
   file:

@@ -4,4 +4,4 @@
     dest: "/etc/sysctl.d/70-fsnotify.conf"
     owner: root
     group: root
-  become: yes
+  become: true

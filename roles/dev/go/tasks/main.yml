@@ -1,0 +1,22 @@
+- name: Install Go via Nix
+  command: "nix-env -iA nixpkgs.go_1_18"
+
+- name: Install Go dev tools
+  shell: "source {{ role_path }}/files/profile.sh; go install {{ item }}"
+  with_items:
+    - "golang.org/x/tools/gopls@latest"
+    - "github.com/go-delve/delve/cmd/dlv@latest"
+    - "honnef.co/go/tools/cmd/staticcheck@latest"
+    - "github.com/josharian/impl@latest"
+    - "github.com/cweill/gotests/...@latest"
+    - "github.com/fatih/gomodifytags@latest"
+    - "github.com/haya14busa/goplay/cmd/goplay@latest"
+    - "github.com/ramya-rao-a/go-outline@latest"
+
+- name: Link ~/.config/profile.d/go.sh
+  file:
+    src: "{{ role_path }}/files/profile.sh"
+    dest: "{{ home_dir }}/.config/profile.d/go.sh"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    state: link

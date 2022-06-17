@@ -15,7 +15,7 @@
   with_items:
     - fira-code-fonts
     - "@c-development"
-  become: yes
+  become: true
 
 - name: Create ~/.var/app/com.visualstudio.code/data/node_modules/bin folder
   file:

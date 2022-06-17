@@ -6,7 +6,7 @@
     - postgresql
     - libpq-devel
     - python3-devel
-  become: yes
+  become: true
 
 - name: Install pgcli package via pipx
   command: pipx install --force pgcli

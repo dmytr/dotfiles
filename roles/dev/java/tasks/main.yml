@@ -1,5 +1,5 @@
 - name: Install JDK
-  command: "{{ home_dir }}/.local/bin/coursier java-home --jvm openjdk:17 --update"
+  shell: "ln -f -s $(cs java-home --jvm temurin:17 --update) {{home_dir}}/.cache/current-jdk"
 
 - name: Link ~/.config/profile.d/java.sh
   file:

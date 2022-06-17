@@ -5,7 +5,7 @@
     state: present
   with_items:
     - nodejs
-  become: yes
+  become: true
 
 - name: Create ~/.config/npm folder
   file:

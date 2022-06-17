@@ -5,7 +5,7 @@
   with_items:
     - git
     - git-subrepo
-  become: yes
+  become: true
 
 - name: Prepare ~/.config/git directory
   file:

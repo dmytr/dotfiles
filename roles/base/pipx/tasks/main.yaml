@@ -4,4 +4,4 @@
     state: present
   with_items:
     - pipx
-  become: yes
+  become: true

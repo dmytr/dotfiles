@@ -4,13 +4,13 @@
     state: present
   with_items:
     - zsh
-  become: yes
+  become: true
 
 - name: Set zsh as a shell for user "{{ user_name }}"
   user:
     name: "{{ user_name }}"
     shell: /bin/zsh
-  become: yes
+  become: true
 
 - name: Configure ZDOTDIR in /etc/zshrc
   blockinfile:
@@ -21,7 +21,7 @@
       elif [[ -d "$XDG_CONFIG_HOME/zsh" ]]; then
         export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
       fi
-  become: yes
+  become: true
 
 - name: Prepare ~/.config/zsh folder
   file:

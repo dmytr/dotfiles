@@ -5,24 +5,38 @@
   with_items:
     - "@multimedia"
     - "@sound-and-video"
-    - "intel-media-driver"
-    - "libva-intel-driver"
-    - "libva-vdpau-driver"
-    - "mesa-vdpau-drivers"
-    - "mesa-vulkan-drivers"
-    - "gstreamer1-plugins-bad-free"
-    - "gstreamer1-plugins-bad-free-extras"
-    - "gstreamer1-plugins-bad-freeworld"
-    - "gstreamer1-plugins-good"
-    - "gstreamer1-plugins-good-extras"
-    - "gstreamer1-plugins-ugly"
-    - "gstreamer1-plugins-ugly-free"
-    - "gstreamer1-libav"
-    - "gstreamer1-vaapi"
-    - "gstreamer1-svt-av1"
-    - "gstreamer1-svt-vp9"
-    - "uhd-firmware"
-  become: yes
+    - dav1d
+    - libdav1d
+    - ffmpeg
+    - ffmpeg-libs
+    - gstreamer1-libav
+    - gstreamer1-plugin-openh264
+    - gstreamer1-plugins-bad-free
+    - gstreamer1-plugins-bad-free-extras
+    - gstreamer1-plugins-bad-freeworld
+    - gstreamer1-plugins-good
+    - gstreamer1-plugins-good-extras
+    - gstreamer1-plugins-ugly
+    - gstreamer1-plugins-ugly-free
+    - gstreamer1-svt-av1
+    - gstreamer1-svt-vp9
+    - gstreamer1-vaapi
+    - intel-media-driver
+    - libva
+    - libva-intel-driver
+    - libva-utils
+    - libva-vdpau-driver
+    - libvdpau
+    - mesa-dri-drivers
+    - mesa-vdpau-drivers
+    - mesa-vulkan-drivers
+    - mozilla-openh264
+    - openh264
+    - uhd-firmware
+    - vulkan-loader
+    - x264
+    - x265
+  become: true
 
 - name: Install flatpak multimedia runtimes
   flatpak:
@@ -31,11 +45,15 @@
     method: user
     state: present
   with_items:
-    - name: org.freedesktop.Platform.GL.default/x86_64/21.08
+    - name: org.freedesktop.Platform.GL.default//21.08
       remote: flathub
-    - name: org.freedesktop.Platform.VAAPI.Intel/x86_64/21.08
+    - name: org.freedesktop.Platform.GL32.default//21.08
       remote: flathub
-    - name: org.freedesktop.Platform.openh264/x86_64/2.0
+    - name: org.freedesktop.Platform.VAAPI.Intel//21.08
       remote: flathub
-    - name: org.freedesktop.Platform.ffmpeg-full/x86_64/21.08
+    - name: org.freedesktop.Platform.VAAPI.Intel.i386//21.08
+      remote: flathub
+    - name: org.freedesktop.Platform.openh264//2.0
+      remote: flathub
+    - name: org.freedesktop.Platform.ffmpeg-full//21.08
       remote: flathub

@@ -6,7 +6,7 @@
     - neovim
     - python3-neovim
     - "@c-development"
-  become: yes
+  become: true
 
 - name: Create configuration folders
   file:

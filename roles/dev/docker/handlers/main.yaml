@@ -1,0 +1,6 @@
+- name: "Configure Docker service"
+  shell: "{{ item }}"
+  with_items:
+    - "systemctl enable docker"
+    - "usermod -aG docker {{ user_name }}"
+  become: true

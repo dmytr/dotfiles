@@ -28,9 +28,12 @@
     - dev/vscode
     - dev/idea
     - dev/podman
+    - dev/docker
     - dev/pgcli
     - dev/java
+    - dev/scala
     - dev/haskell
     - dev/nodejs
+    - dev/go
 
     - extra

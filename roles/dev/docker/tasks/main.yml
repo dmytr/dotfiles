@@ -1,0 +1,10 @@
+- name: Install Docker packages
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - moby-engine
+    - docker-compose
+    - moby-engine-zsh-completion
+  become: true
+  notify: "Configure Docker service"

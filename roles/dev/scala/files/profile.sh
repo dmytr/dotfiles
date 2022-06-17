@@ -1,0 +1,1 @@
+export SBT_TPOLECAT_DEV=1

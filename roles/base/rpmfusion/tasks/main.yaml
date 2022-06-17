@@ -5,7 +5,7 @@
   with_items:
     - https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_version }}.noarch.rpm
     - https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_version }}.noarch.rpm
-  become: yes
+  become: true
 
 - name: Enable tainted PRM Fusion repositories
   package:
@@ -14,7 +14,7 @@
   with_items:
     - rpmfusion-free-release-tainted
     - rpmfusion-nonfree-release-tainted
-  become: yes
+  become: true
 
 - name: Update AppStream metadata
   package:
@@ -22,4 +22,4 @@
     state: latest
   with_items:
     - "@core"
-  become: yes
+  become: true
