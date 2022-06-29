@@ -6,3 +6,17 @@
     - podman
     - podman-compose
   become: true
+
+- name: Enable and start Podman socket
+  service:
+    name: podman.socket
+    state: started
+    enabled: true
+
+- name: Link ~/.config/profile.d/podman.sh
+  file:
+    src: "{{ role_path }}/files/profile.sh"
+    dest: "{{ home_dir }}/.config/profile.d/podman.sh"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    state: link

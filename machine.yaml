@@ -25,7 +25,7 @@
 
     - dev/base
     - dev/coursier
-    - dev/vscode
+    - dev/vscodium
     - dev/idea
     - dev/podman
     - dev/docker

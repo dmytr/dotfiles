@@ -7,7 +7,11 @@ windows:
       - shell_command:
           - flatpak update --assumeyes && exit
       - shell_command:
-          - cs update && cs java-home --jvm temurin:11 --update && ln -f -s $(cs java-home --jvm temurin:17 --update) ~/.cache/current-jdk && exit
+          - >
+              cs update &&
+              ln -f -s $(cs java-home --jvm temurin:11 --update) ~/.cache/current-jdk-11 &&
+              ln -f -s $(cs java-home --jvm temurin:17 --update) ~/.cache/current-jdk-17 &&
+              exit
       - shell_command:
           - nix-channel --update && nix-env --upgrade && exit
       - shell_command:

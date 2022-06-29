@@ -1,5 +1,5 @@
 - name: Install JDK
-  shell: "ln -f -s $(cs java-home --jvm temurin:17 --update) {{home_dir}}/.cache/current-jdk"
+  shell: "ln -f -s $(cs java-home --jvm temurin:17 --update) {{home_dir}}/.cache/current-jdk-17"
 
 - name: Link ~/.config/profile.d/java.sh
   file:
