@@ -28,7 +28,6 @@
     - dev/vscodium
     - dev/idea
     - dev/podman
-    - dev/docker
     - dev/pgcli
     - dev/java
     - dev/scala
