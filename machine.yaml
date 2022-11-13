@@ -15,24 +15,25 @@
     - base/nix
     - base/updates
 
+    - console/git
+    - console/oh-my-zsh
+    - console/nvim
+    - console/terminator
+
     - desktop/gnome-shell
     - desktop/multimedia
 
-    - console/git
-    - console/oh-my-zsh
-    - console/spacevim
-    - console/terminator
-
     - dev/base
     - dev/coursier
-    - dev/vscodium
-    - dev/idea
-    - dev/podman
-    - dev/pgcli
-    - dev/java
-    - dev/scala
-    - dev/haskell
-    - dev/nodejs
     - dev/go
+    - dev/haskell
+    - dev/idea
+    - dev/java
+    - dev/nodejs
+    - dev/pgcli
+    - dev/podman
+    - dev/scala
+    - dev/vscodium
 
     - extra
+

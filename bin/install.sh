@@ -13,8 +13,8 @@ do_init() {
 }
 
 do_venv() {
-    python3 -m venv .env
-    . .env/bin/activate
+    python3 -m venv .venv
+    . .venv/bin/activate
     pip install -U pip wheel ansible selinux
 }
 

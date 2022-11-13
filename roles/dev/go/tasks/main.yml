@@ -1,5 +1,5 @@
 - name: Install Go via Nix
-  command: "nix-env -iA nixpkgs.go_1_18"
+  command: "nix-env -iA nixpkgs.go"
 
 - name: Install Go dev tools
   shell: "source {{ role_path }}/files/profile.sh; go install {{ item }}"

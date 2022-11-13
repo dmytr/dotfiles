@@ -52,17 +52,23 @@
     method: user
     state: present
   with_items:
-    - name: org.gnome.Platform//42
+    - name: org.gnome.Platform//43
       remote: flathub
-    - name: org.gnome.Platform.Compat.i386//42
-      remote: flathub
-    - name: org.gtk.Gtk3theme.Adwaita-dark//3.22
-      remote: flathub
-    - name: org.kde.KStyle.Adwaita//5.15-21.08
-      remote: flathub
-    - name: org.kde.PlatformTheme.QGnomePlatform//5.15-21.08
-      remote: flathub
-    - name: org.kde.PlatformTheme.QtSNI//5.15-21.08
+    - name: org.gnome.Platform.Compat.i386//43
       remote: flathub
     - name: org.kde.WaylandDecoration.QGnomePlatform-decoration//5.15-21.08
+      remote: flathub
+    - name: org.kde.WaylandDecoration.QGnomePlatform-decoration//6.3
+      remote: flathub
+
+- name: Install flatpak apps
+  flatpak:
+    name: "{{ item.name }}"
+    remote: "{{ item.remote }}"
+    method: user
+    state: present
+  with_items:
+    - name: org.gnome.Extensions
+      remote: flathub
+    - name: ca.desrt.dconf-editor
       remote: flathub

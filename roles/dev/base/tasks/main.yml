@@ -8,6 +8,7 @@
     - curl
     - jq
     - htop
+    - fzf
   become: true
 
 - name: Install commonly used native libraries

@@ -1,0 +1,62 @@
+- name: Install neovim packages
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - neovim
+    - python3-neovim
+    - "@c-development"
+    - fd-find
+    - ripgrep
+    - mkfontscale # needed for fonts installation
+  become: true
+
+# TODO: install via NPM globally
+# - neovim
+# - tree-sitter-cli
+
+- name: Clone a LunarVim repository
+  git:
+    repo: https://github.com/LunarVim/LunarVim.git
+    version: release-1.2/neovim-0.8
+    dest: "{{ home_dir }}/.local/share/lunarvim/lvim"
+
+- name: Create configuration folders
+  file:
+    path: "{{ item }}"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    state: directory
+  with_items:
+    - "{{ home_dir }}/.config"
+    - "{{ home_dir }}/.local/share/fonts"
+
+- name: Link configuration files
+  file:
+    src: "{{ role_path }}/files/lvim"
+    dest: "{{ home_dir }}/.config/lvim"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    state: link
+
+- name: Install fonts
+  get_url:
+    url: "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/{{ item.path }}/{{ item.file | urlencode() }}"
+    dest: "{{ home_dir }}/.local/share/fonts/{{ item.file }}"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    mode: "0744"
+  with_items:
+    - path: "DroidSansMono/complete"
+      file: "Droid Sans Mono Nerd Font Complete Mono.otf"
+    - path: "SourceCodePro/Regular/complete"
+      file: "Sauce Code Pro Nerd Font Complete Mono.ttf"
+  notify: "Rebuild fonts cache"
+
+- name: Link ~/.config/profile.d/nvim.sh
+  file:
+    src: "{{ role_path }}/files/profile.sh"
+    dest: "{{ home_dir }}/.config/profile.d/nvim.sh"
+    owner: "{{ user_name }}"
+    group: "{{ user_group }}"
+    state: link

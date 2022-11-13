@@ -22,16 +22,19 @@
     - gstreamer1-svt-vp9
     - gstreamer1-vaapi
     - intel-media-driver
+    - lame
     - libva
     - libva-intel-driver
     - libva-utils
     - libva-vdpau-driver
     - libvdpau
+    - libvdpau-va-gl
     - mesa-dri-drivers
     - mesa-vdpau-drivers
     - mesa-vulkan-drivers
     - mozilla-openh264
     - openh264
+    - svt-hevc
     - uhd-firmware
     - vulkan-loader
     - x264
@@ -45,15 +48,17 @@
     method: user
     state: present
   with_items:
-    - name: org.freedesktop.Platform.GL.default//21.08
+    - name: org.freedesktop.Platform.GL.default//22.08
       remote: flathub
-    - name: org.freedesktop.Platform.GL32.default//21.08
+    - name: org.freedesktop.Platform.GL32.default//22.08
       remote: flathub
-    - name: org.freedesktop.Platform.VAAPI.Intel//21.08
+    - name: org.freedesktop.Platform.GStreamer.gstreamer-vaapi//22.08
       remote: flathub
-    - name: org.freedesktop.Platform.VAAPI.Intel.i386//21.08
+    - name: org.freedesktop.Platform.VAAPI.Intel//22.08
       remote: flathub
-    - name: org.freedesktop.Platform.openh264//2.0
+    - name: org.freedesktop.Platform.VAAPI.Intel.i386//22.08
       remote: flathub
-    - name: org.freedesktop.Platform.ffmpeg-full//21.08
+    - name: org.freedesktop.Platform.ffmpeg-full//22.08
+      remote: flathub
+    - name: org.freedesktop.Platform.openh264//2.3.1
       remote: flathub
