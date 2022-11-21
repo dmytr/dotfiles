@@ -201,4 +201,3 @@ require("gruvbox").setup({
 })
 
 lvim.colorscheme = "gruvbox"
-
