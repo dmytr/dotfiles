@@ -24,7 +24,7 @@
     - path: "DroidSansMono/complete"
       file: "Droid Sans Mono Nerd Font Complete Mono.otf"
     - path: "JetBrainsMono/NoLigatures/Regular/complete"
-      file: "JetBrains Mono NL Regular Nerd Font Complete Mono.ttf"
+      file: "JetBrains Mono NL Nerd Font Complete Mono Regular.ttf"
     - path: "SourceCodePro/Regular/complete"
       file: "Sauce Code Pro Nerd Font Complete Mono.ttf"
   notify: "Rebuild fonts cache"
