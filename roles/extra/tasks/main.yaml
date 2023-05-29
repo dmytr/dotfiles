@@ -16,7 +16,7 @@
   when: "extra is defined and extra.flatpak is defined"
 
 - name: Install extra Nix packages
-  command: "nix-env -iA {{ item }}"
+  command: "nix profile install {{ item }}"
   with_items: "{{ extra.nix }}"
   when: "extra is defined and extra.nix is defined"
 

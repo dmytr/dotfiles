@@ -24,7 +24,7 @@ windows:
    - window_name: nix
      panes:
         - shell_command:
-             - nix-channel --update && nix-env --upgrade
+             - nix profile upgrade '.*'
 
    - window_name: pipx
      panes:

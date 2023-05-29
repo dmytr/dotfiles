@@ -1,5 +1,5 @@
 - name: Install coursier via Nix
-  command: "nix-env -iA nixpkgs.coursier"
+  command: "nix profile install nixpkgs#coursier"
 
 - name: Link ~/.config/profile.d/coursier.sh
   file:

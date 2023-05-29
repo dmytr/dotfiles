@@ -14,15 +14,10 @@
 # - neovim
 # - tree-sitter-cli
 
-- name: Clone a AstroNvim repository
-  git:
-    repo: https://github.com/AstroNvim/AstroNvim
-    dest: "{{ home_dir }}/.config/nvim"
-
-- name: Link ~/.config/nvim/lua/user
+- name: Link ~/.config/nvim
   file:
-    src: "{{ role_path }}/files/astronvim"
-    dest: "{{ home_dir }}/.config/nvim/lua/user"
+    src: "{{ role_path }}/files/lazyvim"
+    dest: "{{ home_dir }}/.config/nvim"
     owner: "{{ user_name }}"
     group: "{{ user_group }}"
     state: link

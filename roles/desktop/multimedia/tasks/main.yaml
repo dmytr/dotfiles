@@ -7,8 +7,7 @@
     - "@sound-and-video"
     - dav1d
     - libdav1d
-    - ffmpeg
-    - ffmpeg-libs
+    - ffmpeg-free
     - gstreamer1-libav
     - gstreamer1-plugin-openh264
     - gstreamer1-plugins-bad-free
@@ -23,21 +22,18 @@
     - gstreamer1-vaapi
     - intel-media-driver
     - lame
+    - libavcodec-freeworld
     - libva
     - libva-intel-driver
     - libva-utils
-    - libva-vdpau-driver
-    - libvdpau
-    - libvdpau-va-gl
     - mesa-dri-drivers
-    - mesa-vdpau-drivers
+    - mesa-va-drivers-freeworld
     - mesa-vulkan-drivers
     - mozilla-openh264
     - openh264
     - svt-hevc
     - uhd-firmware
     - vulkan-loader
-    - x264
     - x265
   become: true
 
